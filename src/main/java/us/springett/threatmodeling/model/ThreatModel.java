@@ -24,6 +24,8 @@ public class ThreatModel {
     private String name;
     private String assumptions;
     private List<String> contributors;
+    private String owner;
+    private String reviewer;
     private List<Threat> threats;
     private Object nativeThreatModel;
 
@@ -89,6 +91,38 @@ public class ThreatModel {
      */
     public void setContributors(List<String> contributors) {
         this.contributors = contributors;
+    }
+
+    /**
+     * Returns the owner of the threat modeling document.
+     * @return the owner of the threat modeling document.
+     */
+    public String getOwner() {
+        return owner;
+    }
+
+    /**
+     * Sets the owner of the threat modeling document.
+     * @param owner the owner of the threat modeling document.
+     */
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    /**
+     * Returns the individual who responsible for reviewing the threat modeling document.
+     * @return the individual who responsible for reviewing the threat modeling document.
+     */
+    public String getReviewer() {
+        return reviewer;
+    }
+
+    /**
+     * Set the individual who responsible for reviewing the threat modeling document.
+     * @param reviewer the individual who responsible for reviewing the threat modeling document.
+     */
+    public void setReviewer(String reviewer) {
+        this.reviewer = reviewer;
     }
 
     /**
