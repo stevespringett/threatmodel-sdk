@@ -22,7 +22,7 @@ Compiling
 
 > $ mvn clean package
 
-Usage
+Usage Example
 -------------------
 ```java
 // Threat model file to open
