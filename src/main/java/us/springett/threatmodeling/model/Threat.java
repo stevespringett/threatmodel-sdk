@@ -18,6 +18,13 @@ package us.springett.threatmodeling.model;
 
 import java.util.List;
 
+/**
+ * A theoretical event with the potential to adversely impact an asset through
+ * unauthorized access, destruction, disclosure, modification of data, and/or
+ * denial of service.
+ *
+ * @since 1.0.0
+ */
 public class Threat {
 
     private String id;
@@ -34,6 +41,7 @@ public class Threat {
     /**
      * Returns the unique ID of the threat.
      * @return the unique ID of the threat.
+     * @since 1.0.0
      */
     public String getId() {
         return id;
@@ -42,6 +50,7 @@ public class Threat {
     /**
      * Sets the unique ID of the threat.
      * @param id the unique ID of the threat.
+     * @since 1.0.0
      */
     public void setId(String id) {
         this.id = id;
@@ -50,6 +59,7 @@ public class Threat {
     /**
      * Returns a brief name of the asset threat.
      * @return a brief name of the asset threat.
+     * @since 1.0.0
      */
     public String getName() {
         return name;
@@ -58,6 +68,7 @@ public class Threat {
     /**
      * Sets a brief name of the asset threat.
      * @param name a brief name of the asset threat.
+     * @since 1.0.0
      */
     public void setName(String name) {
         this.name = name;
@@ -66,6 +77,7 @@ public class Threat {
     /**
      * Returns a detailed description of the threat and its importance.
      * @return a detailed description of the threat and its importance.
+     * @since 1.0.0
      */
     public String getDescription() {
         return description;
@@ -74,6 +86,7 @@ public class Threat {
     /**
      * Sets a detailed description of the threat and its importance.
      * @param description a detailed description of the threat and its importance.
+     * @since 1.0.0
      */
     public void setDescription(String description) {
         this.description = description;
@@ -82,6 +95,7 @@ public class Threat {
     /**
      * Returns how the threat is classified.
      * @return how the threat is classified.
+     * @since 1.0.0
      */
     public ThreatClassification getThreatClassification() {
         return threatClassification;
@@ -90,6 +104,7 @@ public class Threat {
     /**
      * Sets how the threat is classified.
      * @param threatClassification how the threat is classified.
+     * @since 1.0.0
      */
     public void setThreatClassification(ThreatClassification threatClassification) {
         this.threatClassification = threatClassification;
@@ -98,6 +113,7 @@ public class Threat {
     /**
      * Returns the Common Weakness Enumeration (CWE) identifier of the threat.
      * @return the Common Weakness Enumeration (CWE) identifier of the threat.
+     * @since 1.0.0
      */
     public int getCweId() {
         return cweId;
@@ -106,6 +122,7 @@ public class Threat {
     /**
      * Sets the the Common Weakness Enumeration (CWE) identifier of the threat.
      * @param cweId the Common Weakness Enumeration (CWE) identifier of the threat.
+     * @since 1.0.0
      */
     public void setCweId(int cweId) {
         this.cweId = cweId;
@@ -114,6 +131,7 @@ public class Threat {
     /**
      * Returns if the threat has been mitigated or has mitigating controls.
      * @return a boolean indicating if the threat has been mitigated or has mitigating controls.
+     * @since 1.0.0
      */
     public boolean isMitigated() {
         return mitigated;
@@ -122,6 +140,7 @@ public class Threat {
     /**
      * Sets whether or not the threat has been mitigated or has mitigating controls.
      * @param mitigated a boolean indicating if the threat has been mitigated or has mitigating controls.
+     * @since 1.0.0
      */
     public void setMitigated(boolean mitigated) {
         this.mitigated = mitigated;
@@ -130,6 +149,7 @@ public class Threat {
     /**
      * Returns how is the threat being protected and by what means.
      * @return how is the threat being protected and by what means.
+     * @since 1.0.0
      */
     public String getKnownMitigation() {
         return knownMitigation;
@@ -138,6 +158,7 @@ public class Threat {
     /**
      * Sets how is the threat being protected and by what means.
      * @param knownMitigation how is the threat being protected and by what means.
+     * @since 1.0.0
      */
     public void setKnownMitigation(String knownMitigation) {
         this.knownMitigation = knownMitigation;
@@ -146,6 +167,7 @@ public class Threat {
     /**
      * Returns what is known about this threat thus far.
      * @return what is known about this threat thus far.
+     * @since 1.0.0
      */
     public String getInvestigationNotes() {
         return investigationNotes;
@@ -154,6 +176,7 @@ public class Threat {
     /**
      * Sets what is known about this threat thus far.
      * @param investigationNotes what is known about this threat thus far.
+     * @since 1.0.0
      */
     public void setInvestigationNotes(String investigationNotes) {
         this.investigationNotes = investigationNotes;
@@ -162,6 +185,7 @@ public class Threat {
     /**
      * Returns the possible means of entry the adversary has.
      * @return the possible means of entry the adversary has.
+     * @since 1.0.0
      */
     public String getEntryPoints() {
         return entryPoints;
@@ -170,6 +194,7 @@ public class Threat {
     /**
      * Sets the possible means of entry the adversary has.
      * @param entryPoints the possible means of entry the adversary has.
+     * @since 1.0.0
      */
     public void setEntryPoints(String entryPoints) {
         this.entryPoints = entryPoints;
@@ -178,6 +203,7 @@ public class Threat {
     /**
      * Returns a list of Assets that could be damaged by this threat.
      * @return a list of Assets that could be damaged by this threat.
+     * @since 1.0.0
      */
     public List<Asset> getAssets() {
         return assets;
@@ -186,6 +212,7 @@ public class Threat {
     /**
      * Sets a list of Assets that could be damaged by this threat.
      * @param assets a list of Assets that could be damaged by this threat.
+     * @since 1.0.0
      */
     public void setAssets(List<Asset> assets) {
         this.assets = assets;

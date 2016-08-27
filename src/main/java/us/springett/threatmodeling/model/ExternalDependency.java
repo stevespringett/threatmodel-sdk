@@ -17,22 +17,20 @@
 package us.springett.threatmodeling.model;
 
 /**
- * The system must have something that the attacker is interested in; these
- * items/areas of interest are defined as assets. Assets are essentially threat
- * targets, i.e. they are the reason threats will exist. Assets can be both
- * physical assets and abstract assets.
+ * External dependencies are items external to the application of system being threat modeled
+ * that may still pose a threat. External dependencies are typically still within the control
+ * of an organization, but possibly outside of the control of development or operations team.
  *
  * @since 1.0.0
  */
-public class Asset {
+public class ExternalDependency {
 
     private String id;
-    private String name;
     private String description;
 
     /**
-     * Return the unique ID of the threat.
-     * @return the unique ID of the threat.
+     * Returns the unique ID of the external dependency.
+     * @return the unique ID of the external dependency.
      * @since 1.0.0
      */
     public String getId() {
@@ -40,8 +38,8 @@ public class Asset {
     }
 
     /**
-     * Sets the unique ID of the threat.
-     * @param id the unique ID of the threat.
+     * Sets the unique ID of the external dependency.
+     * @param id the unique ID of the external dependency.
      * @since 1.0.0
      */
     public void setId(String id) {
@@ -49,26 +47,8 @@ public class Asset {
     }
 
     /**
-     * Returns a brief name of the asset.
-     * @return a brief name of the asset.
-     * @since 1.0.0
-     */
-    public String getName() {
-        return name;
-    }
-
-    /**
-     * Sets a brief name of the asset.
-     * @param name a brief name of the asset.
-     * @since 1.0.0
-     */
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    /**
-     * Returns a detailed description of the asset.
-     * @return a detailed description of the asset.
+     * Returns the textual description of the external dependency.
+     * @return the textual description of the external dependency.
      * @since 1.0.0
      */
     public String getDescription() {
@@ -76,8 +56,8 @@ public class Asset {
     }
 
     /**
-     * Sets a detailed description of the asset.
-     * @param description a detailed description of the asset.
+     * Sets the textual description of the external dependency.
+     * @param description the textual description of the external dependency.
      * @since 1.0.0
      */
     public void setDescription(String description) {

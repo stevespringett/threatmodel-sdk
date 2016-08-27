@@ -16,16 +16,30 @@
  */
 package us.springett.threatmodeling.exception;
 
+/**
+ * Exception for when parsing vendor-specific threat models fails.
+ *
+ * @since 1.0.0
+ */
 public class ParseException extends Exception {
 
+    /**
+     * @since 1.0.0
+     */
     public ParseException(String message) {
         super(message);
     }
 
+    /**
+     * @since 1.0.0
+     */
     public ParseException(Throwable cause) {
         super(cause);
     }
 
+    /**
+     * @since 1.0.0
+     */
     public ParseException(String message, Throwable cause) {
         super(message, cause);
     }

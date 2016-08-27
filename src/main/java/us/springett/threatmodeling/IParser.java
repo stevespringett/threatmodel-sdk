@@ -20,8 +20,21 @@ import us.springett.threatmodeling.exception.ParseException;
 import us.springett.threatmodeling.model.ThreatModel;
 import java.io.File;
 
+/**
+ * An interface that defines a common way to parse tool-specific threat models.
+ *
+ * @since 1.0.0
+ */
 public interface IParser {
 
+    /**
+     * Parses a tool-specific threat model and returns a normalized,
+     * vendor-neutral ThreatModel object.
+     * @param file the threat model file to parse
+     * @return a normalized, vendor-neutral ThreatModel object
+     * @throws ParseException thrown if errors are encountered with parsing the threat model
+     * @since 1.0.0
+     */
     ThreatModel parse(File file) throws ParseException;
 
 }

@@ -16,6 +16,12 @@
  */
 package us.springett.threatmodeling.model;
 
+/**
+ * The Stride threat classification system developed by Microsoft and later
+ * implemented by many organizations.
+ *
+ * @since 1.0.0
+ */
 public enum Stride implements ThreatClassification {
 
     SPOOFING,

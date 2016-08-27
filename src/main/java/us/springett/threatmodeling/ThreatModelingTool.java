@@ -16,6 +16,11 @@
  */
 package us.springett.threatmodeling;
 
+/**
+ * Supported threat modeling tools.
+ *
+ * @since 1.0.0
+ */
 public enum ThreatModelingTool {
 
     MICROSOFT_THREAT_MODELING_TOOL_2016,

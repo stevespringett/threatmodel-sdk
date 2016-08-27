@@ -16,6 +16,12 @@
  */
 package us.springett.threatmodeling.model;
 
+/**
+ * A system for categorizing threats. Classes that implement this interface are
+ * a type of ThreatClassification.
+ *
+ * @since 1.0.0
+ */
 public interface ThreatClassification {
 
 }
