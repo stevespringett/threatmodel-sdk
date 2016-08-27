@@ -22,6 +22,17 @@ Compiling
 
 > $ mvn clean package
 
+Usage
+-------------------
+```java
+// Threat model file to open
+File file = new File("/path/to/threatmodel.tm7");
+
+// Creates a normalized, vender-neutral ThreatModel object
+ThreatModel threatModel = new ThreatModelFactory()
+    .parse(file, ThreatModelingTool.MICROSOFT_THREAT_MODELING_TOOL_2016);
+```
+
 Copyright & License
 -------------------
 
