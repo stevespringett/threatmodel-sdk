@@ -37,6 +37,10 @@ public class ThreatModelFactory {
      * @since 1.0.0
      */
     public ThreatModel parse(File file, ThreatModelingTool tool) throws ParseException {
+        if (!file.exists() || !file.isFile()) {
+            throw new ParseException("ThreatModel file does not exist.");
+        }
+
         if (ThreatModelingTool.MICROSOFT_THREAT_MODELING_TOOL_2016 == tool) {
             IParser parser = new us.springett.threatmodeling.tools.mstmt2016.Parser();
             return parser.parse(file);
