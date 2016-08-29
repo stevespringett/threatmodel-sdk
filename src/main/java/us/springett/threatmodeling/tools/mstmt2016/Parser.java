@@ -60,12 +60,12 @@ public final class Parser implements IParser {
                     ThreatInstance ti = threatEntry.getValue();
                     threat.setName(ti.getId());
 
-                    threat.
-                    threat.setMitigated(ti.getState().equals("Mitigated"));
+                    //threat.
+                    //threat.setMitigated(ti.getState().equals("Mitigated"));
 
 
 
-                    System.out.println(threat);
+                    //System.out.println(threat);
 
                 }
             }
