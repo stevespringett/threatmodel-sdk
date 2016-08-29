@@ -29,7 +29,7 @@ Usage Example
 File file = new File("/path/to/threatmodel.tm7");
 
 // Creates a normalized, vender-neutral ThreatModel object
-ThreatModel threatModel = new ThreatModelFactory()
+ThreatModel threatModel = ThreatModelFactory
     .parse(file, ThreatModelingTool.MICROSOFT_THREAT_MODELING_TOOL_2016);
 ```
 
@@ -40,6 +40,6 @@ ThreatModel SDK is Copyright (c) Steve Springett. All Rights Reserved.
 
 All other trademarks are property of their respective owners.
 
-Permission to modify and redistribute is granted under the terms of the [GPL 3.0] license.
+Permission to modify and redistribute is granted under the terms of the [Apache 2.0] license.
 
-  [GPL 3.0]: http://www.gnu.org/licenses/gpl-3.0.txt
+  [Apache 2.0]: http://www.apache.org/licenses/LICENSE-2.0.txt
