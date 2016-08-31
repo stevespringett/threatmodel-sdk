@@ -31,7 +31,7 @@ public class ThreatCategory {
         return isExtension;
     }
 
-    @XmlElement(name = "IsExtension")
+    @XmlElement(name = "IsExtension", namespace = "http://schemas.datacontract.org/2004/07/ThreatModeling.KnowledgeBase")
     public void setExtension(boolean extension) {
         isExtension = extension;
     }
@@ -40,7 +40,7 @@ public class ThreatCategory {
         return id;
     }
 
-    @XmlElement(name = "Id")
+    @XmlElement(name = "Id", namespace = "http://schemas.datacontract.org/2004/07/ThreatModeling.KnowledgeBase" )
     public void setId(String id) {
         this.id = id;
     }
@@ -49,7 +49,7 @@ public class ThreatCategory {
         return longDescription;
     }
 
-    @XmlElement(name = "LongDescription")
+    @XmlElement(name = "LongDescription", namespace = "http://schemas.datacontract.org/2004/07/ThreatModeling.KnowledgeBase")
     public void setLongDescription(String longDescription) {
         this.longDescription = longDescription;
     }
@@ -58,7 +58,7 @@ public class ThreatCategory {
         return name;
     }
 
-    @XmlElement(name = "Name")
+    @XmlElement(name = "Name", namespace = "http://schemas.datacontract.org/2004/07/ThreatModeling.KnowledgeBase")
     public void setName(String name) {
         this.name = name;
     }
@@ -67,7 +67,7 @@ public class ThreatCategory {
         return shortDescription;
     }
 
-    @XmlElement(name = "ShortDescription")
+    @XmlElement(name = "ShortDescription", namespace = "http://schemas.datacontract.org/2004/07/ThreatModeling.KnowledgeBase")
     public void setShortDescription(String shortDescription) {
         this.shortDescription = shortDescription;
     }

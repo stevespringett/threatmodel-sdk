@@ -28,7 +28,7 @@ public class GenericElements {
         return elementTypes;
     }
 
-    @XmlElement(name = "ElementType")
+    @XmlElement(name = "ElementType", namespace = "http://schemas.datacontract.org/2004/07/ThreatModeling.KnowledgeBase")
     public void setElementTypes(List<ElementType> elementTypes) {
         this.elementTypes = elementTypes;
     }

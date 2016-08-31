@@ -30,6 +30,7 @@ public class Threat {
     private String name;
     private String description;
     private ThreatClassification threatClassification;
+    private Risk risk;
     private int cweId;
     private boolean mitigated;
     private String knownMitigation;
@@ -107,6 +108,22 @@ public class Threat {
      */
     public void setThreatClassification(ThreatClassification threatClassification) {
         this.threatClassification = threatClassification;
+    }
+
+    /**
+     * Returns the risk of the threat
+     * @return the risk of the threat
+     */
+    public Risk getRisk() {
+        return risk;
+    }
+
+    /**
+     * Sets the risk of the threat
+     * @param risk the risk of the threat
+     */
+    public void setRisk(Risk risk) {
+        this.risk = risk;
     }
 
     /**

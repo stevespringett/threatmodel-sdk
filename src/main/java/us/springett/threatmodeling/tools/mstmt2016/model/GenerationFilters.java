@@ -28,7 +28,7 @@ public class GenerationFilters {
         return include;
     }
 
-    @XmlElement(name = "Include")
+    @XmlElement(name = "Include", namespace = "http://schemas.datacontract.org/2004/07/ThreatModeling.KnowledgeBase")
     public void setInclude(String include) {
         this.include = include;
     }
@@ -37,7 +37,7 @@ public class GenerationFilters {
         return exclude;
     }
 
-    @XmlElement(name = "Exclude")
+    @XmlElement(name = "Exclude", namespace = "http://schemas.datacontract.org/2004/07/ThreatModeling.KnowledgeBase")
     public void setExclude(String exclude) {
         this.exclude = exclude;
     }

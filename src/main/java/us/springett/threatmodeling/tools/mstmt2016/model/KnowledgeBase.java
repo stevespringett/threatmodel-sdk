@@ -15,9 +15,7 @@
  */
 package us.springett.threatmodeling.tools.mstmt2016.model;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElementWrapper;
-import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.*;
 import java.util.List;
 
 @XmlRootElement(name = "KnowledgeBase")
@@ -72,7 +70,7 @@ public class KnowledgeBase {
         return threatMetaData;
     }
 
-    @XmlElement(name = "ThreatMetaData")
+    @XmlElement(name = "ThreatMetaData", namespace = "http://schemas.datacontract.org/2004/07/ThreatModeling.KnowledgeBase")
     public void setThreatMetaData(ThreatMetaData threatMetaData) {
         this.threatMetaData = threatMetaData;
     }

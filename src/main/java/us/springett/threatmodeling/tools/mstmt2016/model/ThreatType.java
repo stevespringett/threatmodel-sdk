@@ -33,7 +33,7 @@ public class ThreatType {
         return isExtension;
     }
 
-    @XmlElement(name = "IsExtension")
+    @XmlElement(name = "IsExtension", namespace = "http://schemas.datacontract.org/2004/07/ThreatModeling.KnowledgeBase")
     public void setExtension(boolean extension) {
         isExtension = extension;
     }
@@ -42,7 +42,7 @@ public class ThreatType {
         return category;
     }
 
-    @XmlElement(name = "Category")
+    @XmlElement(name = "Category", namespace = "http://schemas.datacontract.org/2004/07/ThreatModeling.KnowledgeBase")
     public void setCategory(String category) {
         this.category = category;
     }
@@ -51,7 +51,7 @@ public class ThreatType {
         return description;
     }
 
-    @XmlElement(name = "Description")
+    @XmlElement(name = "Description", namespace = "http://schemas.datacontract.org/2004/07/ThreatModeling.KnowledgeBase")
     public void setDescription(String description) {
         this.description = description;
     }
@@ -60,7 +60,7 @@ public class ThreatType {
         return this.generationFilters;
     }
 
-    @XmlElement(name = "GenerationFilters")
+    @XmlElement(name = "GenerationFilters", namespace = "http://schemas.datacontract.org/2004/07/ThreatModeling.KnowledgeBase")
     public void setGenerationFilters(GenerationFilters generationFilters) {
         this.generationFilters = generationFilters;
     }
@@ -69,7 +69,7 @@ public class ThreatType {
         return id;
     }
 
-    @XmlElement(name = "Id")
+    @XmlElement(name = "Id", namespace = "http://schemas.datacontract.org/2004/07/ThreatModeling.KnowledgeBase")
     public void setId(String id) {
         this.id = id;
     }
@@ -78,7 +78,7 @@ public class ThreatType {
         return propertiesMetaData;
     }
 
-    @XmlElement(name = "PropertiesMetaData")
+    @XmlElement(name = "PropertiesMetaData", namespace = "http://schemas.datacontract.org/2004/07/ThreatModeling.KnowledgeBase")
     public void setPropertiesMetaData(PropertiesMetaData propertiesMetaData) {
         this.propertiesMetaData = propertiesMetaData;
     }
@@ -87,7 +87,7 @@ public class ThreatType {
         return shortTitle;
     }
 
-    @XmlElement(name = "ShortTitle")
+    @XmlElement(name = "ShortTitle", namespace = "http://schemas.datacontract.org/2004/07/ThreatModeling.KnowledgeBase")
     public void setShortTitle(String shortTitle) {
         this.shortTitle = shortTitle;
     }

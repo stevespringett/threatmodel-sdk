@@ -30,7 +30,7 @@ public class Manifest {
         return author;
     }
 
-    @XmlElement(name = "Author")
+    @XmlElement(name = "Author", namespace = "http://schemas.datacontract.org/2004/07/ThreatModeling.KnowledgeBase")
     public void setAuthor(String author) {
         this.author = author;
     }
@@ -39,7 +39,7 @@ public class Manifest {
         return id;
     }
 
-    @XmlElement(name = "Id")
+    @XmlElement(name = "Id", namespace = "http://schemas.datacontract.org/2004/07/ThreatModeling.KnowledgeBase")
     public void setId(String id) {
         this.id = id;
     }
@@ -48,7 +48,7 @@ public class Manifest {
         return name;
     }
 
-    @XmlElement(name = "Name")
+    @XmlElement(name = "Name", namespace = "http://schemas.datacontract.org/2004/07/ThreatModeling.KnowledgeBase")
     public void setName(String name) {
         this.name = name;
     }
@@ -57,7 +57,7 @@ public class Manifest {
         return version;
     }
 
-    @XmlElement(name = "Version")
+    @XmlElement(name = "Version", namespace = "http://schemas.datacontract.org/2004/07/ThreatModeling.KnowledgeBase")
     public void setVersion(String version) {
         this.version = version;
     }

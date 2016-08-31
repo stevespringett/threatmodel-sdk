@@ -33,7 +33,7 @@ public class ElementType {
         return isExtension;
     }
 
-    @XmlElement(name = "isExtension")
+    @XmlElement(name = "isExtension", namespace = "http://schemas.datacontract.org/2004/07/ThreatModeling.KnowledgeBase")
     public void setExtension(boolean extension) {
         isExtension = extension;
     }
@@ -42,7 +42,7 @@ public class ElementType {
         return description;
     }
 
-    @XmlElement(name = "isExtension")
+    @XmlElement(name = "isExtension", namespace = "http://schemas.datacontract.org/2004/07/ThreatModeling.KnowledgeBase")
     public void setDescription(String description) {
         this.description = description;
     }
@@ -51,7 +51,7 @@ public class ElementType {
         return hidden;
     }
 
-    @XmlElement(name = "hidden")
+    @XmlElement(name = "hidden", namespace = "http://schemas.datacontract.org/2004/07/ThreatModeling.KnowledgeBase")
     public void setHidden(boolean hidden) {
         this.hidden = hidden;
     }
@@ -60,7 +60,7 @@ public class ElementType {
         return id;
     }
 
-    @XmlElement(name = "Id")
+    @XmlElement(name = "Id", namespace = "http://schemas.datacontract.org/2004/07/ThreatModeling.KnowledgeBase")
     public void setId(String id) {
         this.id = id;
     }
@@ -69,7 +69,7 @@ public class ElementType {
         return name;
     }
 
-    @XmlElement(name = "Name")
+    @XmlElement(name = "Name", namespace = "http://schemas.datacontract.org/2004/07/ThreatModeling.KnowledgeBase")
     public void setName(String name) {
         this.name = name;
     }
@@ -78,7 +78,7 @@ public class ElementType {
         return parentId;
     }
 
-    @XmlElement(name = "ParentId")
+    @XmlElement(name = "ParentId", namespace = "http://schemas.datacontract.org/2004/07/ThreatModeling.KnowledgeBase")
     public void setParentId(String parentId) {
         this.parentId = parentId;
     }
@@ -87,7 +87,7 @@ public class ElementType {
         return representation;
     }
 
-    @XmlElement(name = "Representation")
+    @XmlElement(name = "Representation", namespace = "http://schemas.datacontract.org/2004/07/ThreatModeling.KnowledgeBase")
     public void setRepresentation(String representation) {
         this.representation = representation;
     }
