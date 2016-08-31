@@ -12,6 +12,13 @@
     <name>ThreatModel SDK</name>
     <description>A Java library for parsing and programmatically using threat models</description>
     <inceptionYear>2016</inceptionYear>
+    <url>https://github.com/stevespringett/threatmodel-sdk</url>
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
 
     <properties>
         <java-version>1.7</java-version>
