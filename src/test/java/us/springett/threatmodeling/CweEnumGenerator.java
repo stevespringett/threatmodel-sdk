@@ -62,13 +62,13 @@ public class CweEnumGenerator {
         sb.append(";\n\n");
 
         sb.append(INDENT).append("private int id;\n");
-        sb.append(INDENT).append("private String desc;\n\n");
-        sb.append(INDENT).append("CWE(int id, String desc) {\n");
+        sb.append(INDENT).append("private String name;\n\n");
+        sb.append(INDENT).append("CWE(int id, String name) {\n");
         sb.append(INDENT).append(INDENT).append("this.id = id;\n");
-        sb.append(INDENT).append(INDENT).append("this.desc = desc;\n");
+        sb.append(INDENT).append(INDENT).append("this.name = name;\n");
         sb.append(INDENT).append("}\n\n");
         sb.append(INDENT).append("public int getId() {\n").append(INDENT).append(INDENT).append("return id;\n").append(INDENT).append("}\n\n");
-        sb.append(INDENT).append("public String getDesc() {\n").append(INDENT).append(INDENT).append("return desc;\n").append(INDENT).append("}\n\n");
+        sb.append(INDENT).append("public String getName() {\n").append(INDENT).append(INDENT).append("return name;\n").append(INDENT).append("}\n\n");
         sb.append("}");
 
         System.out.println(sb.toString());

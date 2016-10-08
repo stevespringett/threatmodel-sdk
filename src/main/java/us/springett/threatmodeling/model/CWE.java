@@ -996,19 +996,19 @@ public enum CWE {
     CWE_1002(1002, "SFP Secondary Cluster: Unexpected Entry Points");
 
     private int id;
-    private String desc;
+    private String name;
 
-    CWE(int id, String desc) {
+    CWE(int id, String name) {
         this.id = id;
-        this.desc = desc;
+        this.name = name;
     }
 
     public int getId() {
         return id;
     }
 
-    public String getDesc() {
-        return desc;
+    public String getName() {
+        return name;
     }
 
 }
