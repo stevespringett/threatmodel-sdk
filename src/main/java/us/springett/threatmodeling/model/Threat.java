@@ -31,7 +31,7 @@ public class Threat {
     private String description;
     private ThreatClassification threatClassification;
     private Risk risk;
-    private int cweId;
+    private CWE cwe;
     private boolean mitigated;
     private String knownMitigation;
     private String investigationNotes;
@@ -131,17 +131,17 @@ public class Threat {
      * @return the Common Weakness Enumeration (CWE) identifier of the threat.
      * @since 1.0.0
      */
-    public int getCweId() {
-        return cweId;
+    public CWE getCWE() {
+        return cwe;
     }
 
     /**
      * Sets the the Common Weakness Enumeration (CWE) identifier of the threat.
-     * @param cweId the Common Weakness Enumeration (CWE) identifier of the threat.
+     * @param cwe the Common Weakness Enumeration (CWE) identifier of the threat.
      * @since 1.0.0
      */
-    public void setCweId(int cweId) {
-        this.cweId = cweId;
+    public void setCWE(CWE cwe) {
+        this.cwe = cwe;
     }
 
     /**
