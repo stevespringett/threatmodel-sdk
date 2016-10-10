@@ -47,4 +47,14 @@
         </dependency>
     </dependencies>
 
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.hpe.security.fortify.maven.plugin</groupId>
+                <artifactId>sca-maven-plugin</artifactId>
+                <version>16.10</version>
+            </plugin>
+        </plugins>
+    </build>
+
 </project>
