@@ -102,7 +102,7 @@ public class Asset {
     }
 
     /**
-     * Fluent interface for {@link #setDescription(String)}}
+     * Fluent interface for {@link #setDescription(String)}
      * @since 1.0.0
      */
     public Asset description(String description) {
