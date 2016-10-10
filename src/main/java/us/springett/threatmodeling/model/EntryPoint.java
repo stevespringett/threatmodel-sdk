@@ -51,6 +51,15 @@ public class EntryPoint {
     }
 
     /**
+     * Fluent interface for {@link #setId(String)}
+     * @since 1.0.0
+     */
+    public EntryPoint id(String id) {
+        setId(id);
+        return this;
+    }
+
+    /**
      * Returns a brief name of the entry point.
      * @return a brief name of the entry point.
      * @since 1.0.0
@@ -66,6 +75,15 @@ public class EntryPoint {
      */
     public void setName(String name) {
         this.name = name;
+    }
+
+    /**
+     * Fluent interface for {@link #setName(String)}
+     * @since 1.0.0
+     */
+    public EntryPoint name(String name) {
+        setName(name);
+        return this;
     }
 
     /**
@@ -87,6 +105,15 @@ public class EntryPoint {
     }
 
     /**
+     * Fluent interface for {@link #setDescription(String)}}
+     * @since 1.0.0
+     */
+    public EntryPoint description(String description) {
+        setDescription(description);
+        return this;
+    }
+
+    /**
      * Returns the level of access required at the entry point.
      * @return the level of access required at the entry point.
      * @since 1.0.0
@@ -102,5 +129,14 @@ public class EntryPoint {
      */
     public void setTrustLevels(List<TrustLevel> trustLevels) {
         this.trustLevels = trustLevels;
+    }
+
+    /**
+     * Fluent interface for {@link #setTrustLevels(List)}
+     * @since 1.0.0
+     */
+    public EntryPoint trustLevels(List<TrustLevel> trustLevels) {
+        setTrustLevels(trustLevels);
+        return this;
     }
 }

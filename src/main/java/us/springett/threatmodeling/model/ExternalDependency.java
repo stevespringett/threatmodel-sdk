@@ -46,6 +46,15 @@ public class ExternalDependency {
     }
 
     /**
+     * Fluent interface for {@link #setId(String)}
+     * @since 1.0.0
+     */
+    public ExternalDependency id(String id) {
+        setId(id);
+        return this;
+    }
+
+    /**
      * Returns the textual description of the external dependency.
      * @return the textual description of the external dependency.
      * @since 1.0.0
@@ -61,5 +70,14 @@ public class ExternalDependency {
      */
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    /**
+     * Fluent interface for {@link #setDescription(String)}
+     * @since 1.0.0
+     */
+    public ExternalDependency description(String description) {
+        setDescription(description);
+        return this;
     }
 }

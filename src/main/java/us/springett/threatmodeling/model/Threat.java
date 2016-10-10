@@ -57,6 +57,15 @@ public class Threat {
     }
 
     /**
+     * Fluent interface for {@link #setId(String)}
+     * @since 1.0.0
+     */
+    public Threat id(String id) {
+        setId(id);
+        return this;
+    }
+
+    /**
      * Returns a brief name of the asset threat.
      * @return a brief name of the asset threat.
      * @since 1.0.0
@@ -72,6 +81,15 @@ public class Threat {
      */
     public void setName(String name) {
         this.name = name;
+    }
+
+    /**
+     * Fluent interface for {@link #setName(String)}
+     * @since 1.0.0
+     */
+    public Threat name(String name) {
+        setName(name);
+        return this;
     }
 
     /**
@@ -93,6 +111,15 @@ public class Threat {
     }
 
     /**
+     * Fluent interface for {@link #setDescription(String)}
+     * @since 1.0.0
+     */
+    public Threat description(String description) {
+        setDescription(description);
+        return this;
+    }
+
+    /**
      * Returns how the threat is classified.
      * @return how the threat is classified.
      * @since 1.0.0
@@ -111,6 +138,15 @@ public class Threat {
     }
 
     /**
+     * Fluent interface for {@link #setThreatClassification(ThreatClassification)}
+     * @since 1.0.0
+     */
+    public Threat threatClassification(ThreatClassification threatClassification) {
+        setThreatClassification(threatClassification);
+        return this;
+    }
+
+    /**
      * Returns the risk of the threat
      * @return the risk of the threat
      */
@@ -124,6 +160,15 @@ public class Threat {
      */
     public void setRisk(Risk risk) {
         this.risk = risk;
+    }
+
+    /**
+     * Fluent interface for {@link #setRisk(Risk)}
+     * @since 1.0.0
+     */
+    public Threat risk(Risk risk) {
+        setRisk(risk);
+        return this;
     }
 
     /**
@@ -145,6 +190,15 @@ public class Threat {
     }
 
     /**
+     * Fluent interface for {@link #setCWE(CWE)}
+     * @since 1.0.0
+     */
+    public Threat cwe(CWE cwe) {
+        setCWE(cwe);
+        return this;
+    }
+
+    /**
      * Returns if the threat has been mitigated or has mitigating controls.
      * @return a boolean indicating if the threat has been mitigated or has mitigating controls.
      * @since 1.0.0
@@ -160,6 +214,15 @@ public class Threat {
      */
     public void setMitigated(boolean mitigated) {
         this.mitigated = mitigated;
+    }
+
+    /**
+     * Fluent interface for {@link #setMitigated(boolean)}
+     * @since 1.0.0
+     */
+    public Threat mitigated(boolean mitigated) {
+        setMitigated(mitigated);
+        return this;
     }
 
     /**
@@ -181,6 +244,15 @@ public class Threat {
     }
 
     /**
+     * Fluent interface for {@link #setKnownMitigation(String)}
+     * @since 1.0.0
+     */
+    public Threat knownMitigation(String knownMitigation) {
+        setKnownMitigation(knownMitigation);
+        return this;
+    }
+
+    /**
      * Returns what is known about this threat thus far.
      * @return what is known about this threat thus far.
      * @since 1.0.0
@@ -196,6 +268,15 @@ public class Threat {
      */
     public void setInvestigationNotes(String investigationNotes) {
         this.investigationNotes = investigationNotes;
+    }
+
+    /**
+     * Fluent interface for {@link #setInvestigationNotes(String)}
+     * @since 1.0.0
+     */
+    public Threat investigationNotes(String investigationNotes) {
+        setInvestigationNotes(investigationNotes);
+        return this;
     }
 
     /**
@@ -217,6 +298,15 @@ public class Threat {
     }
 
     /**
+     * Fluent interface for {@link #setEntryPoints(String)}
+     * @since 1.0.0
+     */
+    public Threat entryPoints(String entryPoints) {
+        this.entryPoints = entryPoints;
+        return this;
+    }
+
+    /**
      * Returns a list of Assets that could be damaged by this threat.
      * @return a list of Assets that could be damaged by this threat.
      * @since 1.0.0
@@ -232,5 +322,14 @@ public class Threat {
      */
     public void setAssets(List<Asset> assets) {
         this.assets = assets;
+    }
+
+    /**
+     * Fluent interface for {@link #setAssets(List)}
+     * @since 1.0.0
+     */
+    public Threat assets(List<Asset> assets) {
+        setAssets(assets);
+        return this;
     }
 }

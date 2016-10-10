@@ -33,6 +33,18 @@ ThreatModel threatModel = ThreatModelFactory
     .parse(file, ThreatModelingTool.MICROSOFT_THREAT_MODELING_TOOL_2016);
 ```
 
+```java
+// Java Bean conventions
+Threat threat = new Threat();
+threat.setName("XSS");
+threat.setRisk(risk);
+
+// Fluent interface
+Threat threat = new Threat()
+  .name("XSS")
+  .risk(risk);
+```
+
 Copyright & License
 -------------------
 

@@ -56,6 +56,15 @@ public class ThreatModel {
     }
 
     /**
+     * Fluent interface for {@link #setId(String)}
+     * @since 1.0.0
+     */
+    public ThreatModel id(String id) {
+        setId(id);
+        return this;
+    }
+
+    /**
      * Returns a brief name of the asset threat model.
      * @return a brief name of the asset threat model.
      * @since 1.0.0
@@ -74,8 +83,18 @@ public class ThreatModel {
     }
 
     /**
+     * Fluent interface for {@link #setName(String)}
+     * @since 1.0.0
+     */
+    public ThreatModel name(String name) {
+        setName(name);
+        return this;
+    }
+
+    /**
      * Returns a high-level description of the threat model.
      * @return a high-level description of the threat model.
+     * @since 1.0.0
      */
     public String getDescription() {
         return description;
@@ -84,9 +103,19 @@ public class ThreatModel {
     /**
      * Sets a high-level description of the threat model.
      * @param description a high-level description of the threat model.
+     * @since 1.0.0
      */
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    /**
+     * Fluent interface for {@link #setDescription(String)}
+     * @since 1.0.0
+     */
+    public ThreatModel description(String description) {
+        setDescription(description);
+        return this;
     }
 
     /**
@@ -108,6 +137,15 @@ public class ThreatModel {
     }
 
     /**
+     * Fluent interface for {@link #setAssumptions(String)}
+     * @since 1.0.0
+     */
+    public ThreatModel assumptions(String assumptions) {
+        setAssumptions(assumptions);
+        return this;
+    }
+
+    /**
      * Returns the contributors to the threat model.
      * @return the contributors to the threat model.
      * @since 1.0.0
@@ -123,6 +161,15 @@ public class ThreatModel {
      */
     public void setContributors(String contributors) {
         this.contributors = contributors;
+    }
+
+    /**
+     * Fluent interface for {@link #setContributors(String)}
+     * @since 1.0.0
+     */
+    public ThreatModel contributors(String contributors) {
+        setContributors(contributors);
+        return this;
     }
 
     /**
@@ -144,6 +191,15 @@ public class ThreatModel {
     }
 
     /**
+     * Fluent interface for {@link #setOwner(String)}
+     * @since 1.0.0
+     */
+    public ThreatModel owner(String owner) {
+        setOwner(owner);
+        return this;
+    }
+
+    /**
      * Returns the individual who responsible for reviewing the threat modeling document.
      * @return the individual who responsible for reviewing the threat modeling document.
      * @since 1.0.0
@@ -159,6 +215,15 @@ public class ThreatModel {
      */
     public void setReviewer(String reviewer) {
         this.reviewer = reviewer;
+    }
+
+    /**
+     * Fluent interface for {@link #setReviewer(String)}
+     * @since 1.0.0
+     */
+    public ThreatModel reviewer(String reviewer) {
+        setReviewer(reviewer);
+        return this;
     }
 
     /**
@@ -180,6 +245,15 @@ public class ThreatModel {
     }
 
     /**
+     * Fluent interface for {@link #setExternalDependencies(List)}
+     * @since 1.0.0
+     */
+    public ThreatModel externalDependencies(List<ExternalDependency> externalDependencies) {
+        setExternalDependencies(externalDependencies);
+        return this;
+    }
+
+    /**
      * Returns a list of entry points.
      * @return a list of entry points.
      * @since 1.0.0
@@ -195,6 +269,15 @@ public class ThreatModel {
      */
     public void setEntryPoints(List<EntryPoint> entryPoints) {
         this.entryPoints = entryPoints;
+    }
+
+    /**
+     * Fluent interface for {@link #setEntryPoints(List)}
+     * @since 1.0.0
+     */
+    public ThreatModel entryPoints(List<EntryPoint> entryPoints) {
+        setEntryPoints(entryPoints);
+        return this;
     }
 
     /**
@@ -216,6 +299,15 @@ public class ThreatModel {
     }
 
     /**
+     * Fluent interface for {@link #setAssets(List)}
+     * @since 1.0.0
+     */
+    public ThreatModel assets(List<Asset> assets) {
+        setAssets(assets);
+        return this;
+    }
+
+    /**
      * Returns a list of threats identified during the threat modeling exercise.
      * @return a list of threats identified during the threat modeling exercise.
      * @since 1.0.0
@@ -231,6 +323,15 @@ public class ThreatModel {
      */
     public void setThreats(List<Threat> threats) {
         this.threats = threats;
+    }
+
+    /**
+     * Fluent interface for {@link #setThreats(List)}
+     * @since 1.0.0
+     */
+    public ThreatModel threats(List<Threat> threats) {
+        setThreats(threats);
+        return this;
     }
 
     /**
@@ -253,5 +354,14 @@ public class ThreatModel {
      */
     public void setNativeThreatModel(Object nativeThreatModel) {
         this.nativeThreatModel = nativeThreatModel;
+    }
+
+    /**
+     * Fluent interface for {@link #setNativeThreatModel(Object)}
+     * @since 1.0.0
+     */
+    public ThreatModel nativeThreatModel(Object nativeThreatModel) {
+        setNativeThreatModel(nativeThreatModel);
+        return this;
     }
 }

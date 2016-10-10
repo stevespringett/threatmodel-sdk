@@ -81,6 +81,8 @@ public final class Parser implements IParser {
                         threat.setRisk(Risk.MEDIUM);
                     } else if ("Low".equals(ti.getPriority())) {
                         threat.setRisk(Risk.LOW);
+                    } else{
+                        System.out.println("something else");
                     }
                     threat.setMitigated("Mitigated".equals(ti.getState()));
 
@@ -104,8 +106,9 @@ public final class Parser implements IParser {
 
                     //todo: complete model normalization
 
-                    //System.out.println(threat);
 
+                    System.out.println(threat);
+                    threats.add(threat);
                 }
             }
 

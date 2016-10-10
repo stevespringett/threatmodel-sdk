@@ -48,6 +48,15 @@ public class TrustLevel {
     }
 
     /**
+     * Fluent interface for {@link #setId(String)}
+     * @since 1.0.0
+     */
+    public TrustLevel id(String id) {
+        setId(id);
+        return this;
+    }
+
+    /**
      * Returns a descriptive name that allows you to identify the external entities that have been granted this trust level.
      * @return a descriptive name that allows you to identify the external entities that have been granted this trust level.
      * @since 1.0.0
@@ -66,6 +75,15 @@ public class TrustLevel {
     }
 
     /**
+     * Fluent interface for {@link #setName(String)}
+     * @since 1.0.0
+     */
+    public TrustLevel name(String name) {
+        setName(name);
+        return this;
+    }
+
+    /**
      * Returns a textual description of the trust level detailing the external entity who has been granted the trust level.
      * @return a textual description of the trust level detailing the external entity who has been granted the trust level.
      * @since 1.0.0
@@ -81,5 +99,14 @@ public class TrustLevel {
      */
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    /**
+     * Fluent interface for {@link #setDescription(String)}
+     * @since 1.0.0
+     */
+    public TrustLevel description(String description) {
+        setDescription(description);
+        return this;
     }
 }

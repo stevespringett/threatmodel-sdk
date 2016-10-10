@@ -48,6 +48,15 @@ public class Asset {
     }
 
     /**
+     * Fluent interface for {@link #setId(String)}
+     * @since 1.0.0
+     */
+    public Asset id(String id) {
+        setId(id);
+        return this;
+    }
+
+    /**
      * Returns a brief name of the asset.
      * @return a brief name of the asset.
      * @since 1.0.0
@@ -66,6 +75,15 @@ public class Asset {
     }
 
     /**
+     * Fluent interface for {@link #setName(String)}
+     * @since 1.0.0
+     */
+    public Asset name(String name) {
+        setName(name);
+        return this;
+    }
+
+    /**
      * Returns a detailed description of the asset.
      * @return a detailed description of the asset.
      * @since 1.0.0
@@ -81,5 +99,14 @@ public class Asset {
      */
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    /**
+     * Fluent interface for {@link #setDescription(String)}}
+     * @since 1.0.0
+     */
+    public Asset description(String description) {
+        setDescription(description);
+        return this;
     }
 }
