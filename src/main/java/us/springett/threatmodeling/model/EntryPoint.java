@@ -105,7 +105,7 @@ public class EntryPoint {
     }
 
     /**
-     * Fluent interface for {@link #setDescription(String)}
+     * Fluent interface for {@link #setDescription(String)}}
      * @since 1.0.0
      */
     public EntryPoint description(String description) {
