@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/stevespringett/threatmodel-sdk.svg?branch=master)](https://travis-ci.org/stevespringett/threatmodel-sdk)
+[![Coverity Status](https://img.shields.io/coverity/scan/10490.svg)](https://scan.coverity.com/projects/stevespringett-threatmodel-sdk)
 
 ThreatModel SDK
 =====================================
