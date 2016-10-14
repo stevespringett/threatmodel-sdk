@@ -108,7 +108,7 @@ public class ThreatInstance {
         return properties;
     }
 
-    @XmlElementWrapper(name = "Properties")
+    @XmlElementWrapper(name = "Properties", namespace = "http://schemas.datacontract.org/2004/07/ThreatModeling.KnowledgeBase")
     @XmlElement(name = "KeyValueOfstringstring", namespace = "http://schemas.microsoft.com/2003/10/Serialization/Arrays")
     @XmlJavaTypeAdapter(ThreatPropertyMapAdapter.class)
     public void setProperties(List<Map<String, String>> properties) {
