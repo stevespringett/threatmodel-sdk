@@ -206,7 +206,7 @@ public class Threat {
      * identifier of the threat.
      * @since 1.0.0
      */
-    public CAPEC getCapec() {
+    public CAPEC getCAPEC() {
         return capec;
     }
 
