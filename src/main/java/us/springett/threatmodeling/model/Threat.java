@@ -32,8 +32,9 @@ public class Threat {
     private ThreatClassification threatClassification;
     private Risk risk;
     private CWE cwe;
+    private CAPEC capec;
     private boolean mitigated;
-    private String knownMitigation;
+    private String justification;
     private String investigationNotes;
     private String entryPoints;
     private List<Asset> assets;
@@ -199,6 +200,37 @@ public class Threat {
     }
 
     /**
+     * Returns the Common Attack Pattern Enumeration and Classification (CAPEC)
+     * identifier of the threat.
+     * @return the Common Attack Pattern Enumeration and Classification (CAPEC)
+     * identifier of the threat.
+     * @since 1.0.0
+     */
+    public CAPEC getCapec() {
+        return capec;
+    }
+
+    /**
+     * Sets the Common Attack Pattern Enumeration and Classification (CAPEC)
+     * identifier of the threat.
+     * @return the Common Attack Pattern Enumeration and Classification (CAPEC)
+     * identifier of the threat.
+     * @since 1.0.0
+     */
+    public void setCAPEC(CAPEC capec) {
+        this.capec = capec;
+    }
+
+    /**
+     * Fluent interface for {@link #setCAPEC(CAPEC)} (CAPEC)}
+     * @since 1.0.0
+     */
+    public Threat capec(CAPEC capec) {
+        setCAPEC(capec);
+        return this;
+    }
+
+    /**
      * Returns if the threat has been mitigated or has mitigating controls.
      * @return a boolean indicating if the threat has been mitigated or has mitigating controls.
      * @since 1.0.0
@@ -230,25 +262,25 @@ public class Threat {
      * @return how is the threat being protected and by what means.
      * @since 1.0.0
      */
-    public String getKnownMitigation() {
-        return knownMitigation;
+    public String getJustification() {
+        return justification;
     }
 
     /**
      * Sets how is the threat being protected and by what means.
-     * @param knownMitigation how is the threat being protected and by what means.
+     * @param justification how is the threat being protected and by what means.
      * @since 1.0.0
      */
-    public void setKnownMitigation(String knownMitigation) {
-        this.knownMitigation = knownMitigation;
+    public void setJustification(String justification) {
+        this.justification = justification;
     }
 
     /**
-     * Fluent interface for {@link #setKnownMitigation(String)}
+     * Fluent interface for {@link #setJustification(String)}
      * @since 1.0.0
      */
-    public Threat knownMitigation(String knownMitigation) {
-        setKnownMitigation(knownMitigation);
+    public Threat justification(String justification) {
+        setJustification(justification);
         return this;
     }
 
