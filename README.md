@@ -19,8 +19,7 @@ threats can be automatically added to a teams backlog or defect tracking
 system.
 
 The goal of this project is NOT to graphically represent threat model 
-data through user interfaces. Although, I wouldn't necessarily pass up 
-contributions that provide that capability.
+data through user interfaces. 
 
 Supported Threat Modeling Tools
 -------------------
