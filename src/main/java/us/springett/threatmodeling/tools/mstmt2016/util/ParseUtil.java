@@ -15,11 +15,17 @@
  */
 package us.springett.threatmodeling.tools.mstmt2016.util;
 
+import us.springett.threatmodeling.model.Asset;
 import us.springett.threatmodeling.model.Risk;
 import us.springett.threatmodeling.model.Stride;
+import us.springett.threatmodeling.tools.mstmt2016.model.Border;
+import us.springett.threatmodeling.tools.mstmt2016.model.DrawingSurfaceList;
+import us.springett.threatmodeling.tools.mstmt2016.model.DrawingSurfaceModel;
 import us.springett.threatmodeling.tools.mstmt2016.model.ThreatInstance;
 import us.springett.threatmodeling.tools.mstmt2016.model.ThreatModel;
 import us.springett.threatmodeling.tools.mstmt2016.model.ThreatType;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 public class ParseUtil {
@@ -99,6 +105,30 @@ public class ParseUtil {
 
     public static boolean isMitigated(ThreatInstance threatInstance) {
         return "Mitigated".equals(threatInstance.getState());
+    }
+
+    public static List<Asset> lookupAssets(ThreatModel threatModel) {
+        List<Asset> assets = new ArrayList<>();
+
+        DrawingSurfaceList dsl = threatModel.getDrawingSurfaceList();
+        if (dsl == null) return assets;
+
+        DrawingSurfaceModel dsm = dsl.getDrawingSurfaceModel();
+        if (dsm == null) return assets;
+
+        for (Border border: dsm.getBorders()) {
+            Asset asset = new Asset();
+            asset.setId(border.getKey());
+            if (border.getValue() != null && border.getValue().getAnyTypes() != null) {
+                for (Border.AnyType anytype: border.getValue().getAnyTypes()) {
+                    if (anytype.getDisplayName() != null && anytype.getDisplayName().equals("Name")) {
+                        asset.setName(anytype.getValue());
+                    }
+                }
+            }
+            assets.add(asset);
+        }
+        return assets;
     }
 
 }

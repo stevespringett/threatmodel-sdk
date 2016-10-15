@@ -25,11 +25,22 @@ import java.util.List;
 @XmlRootElement(name = "ThreatModel", namespace = "http://schemas.datacontract.org/2004/07/ThreatModeling.Model")
 public class ThreatModel {
 
+    private DrawingSurfaceList drawingSurfaceList;
     private MetaInformation metaInformation;
     private List<HashMap<String, ThreatInstance>> threatInstances;
     private KnowledgeBase knowledgeBase;
     private String notes;
     private String version;
+
+
+    public DrawingSurfaceList getDrawingSurfaceList() {
+        return drawingSurfaceList;
+    }
+
+    @XmlElement(name = "DrawingSurfaceList")
+    public void setDrawingSurfaceList(DrawingSurfaceList drawingSurfaceList) {
+        this.drawingSurfaceList = drawingSurfaceList;
+    }
 
     public MetaInformation getMetaInformation() {
         return metaInformation;

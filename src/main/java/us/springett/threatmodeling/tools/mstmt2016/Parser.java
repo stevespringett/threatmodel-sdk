@@ -64,7 +64,8 @@ public final class Parser implements IParser {
                     .description(nativeModel.getMetaInformation().getHighLevelSystemDescription())
                     .name(nativeModel.getMetaInformation().getThreatModelName())
                     .owner(nativeModel.getMetaInformation().getOwner())
-                    .reviewer(nativeModel.getMetaInformation().getReviewer());
+                    .reviewer(nativeModel.getMetaInformation().getReviewer())
+                    .assets(ParseUtil.lookupAssets(nativeModel));
 
             List<Threat> threats = new ArrayList<>();
             List<HashMap<String, ThreatInstance>> threatList = nativeModel.getKeyValueThreatMap();
@@ -85,7 +86,6 @@ public final class Parser implements IParser {
                     //todo: complete model normalization
                     //todo: add CWE and CAPEC mappings
 
-                    System.out.println(threat);
                     threats.add(threat);
                 }
                 threatModel.setThreats(threats);
