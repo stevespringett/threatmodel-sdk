@@ -8,15 +8,24 @@ The ThreatModel SDK is a minimalistic Java library that provides a basic
 vendor-neutral object model along with the ability to parse reports 
 generated from common threat modeling tools.
 
+Intent and Purpose
+-------------------
+
+The intent of the ThreatModel SDK is to represent threat model data in a
+normalized way, regardless of approach, tool, or vendor. The primary 
+purpose of the SDK is to facilitate the automation of threat model data
+by exfiltrating threat intelligence from the model so that identified 
+threats can be automatically added to a teams backlog or defect tracking
+system.
+
+The goal of this project is NOT to graphically represent threat model 
+data through user interfaces. Although, I wouldn't necessarily pass up 
+contributions that provide that capability.
+
 Supported Threat Modeling Tools
 -------------------
 
 * Microsoft Threat Modeling Tool 2016
-
-Planned Threat Modeling Tools
--------------------
-
-* Mozilla SeaSponge
 
 Compiling
 -------------------
