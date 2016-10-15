@@ -17,11 +17,11 @@ package us.springett.threatmodeling.tools.mstmt2016;
 
 import us.springett.threatmodeling.IParser;
 import us.springett.threatmodeling.exception.ParseException;
-import us.springett.threatmodeling.model.Risk;
-import us.springett.threatmodeling.model.Stride;
 import us.springett.threatmodeling.model.Threat;
 import us.springett.threatmodeling.model.ThreatModel;
 import us.springett.threatmodeling.tools.mstmt2016.model.ThreatInstance;
+import us.springett.threatmodeling.tools.mstmt2016.model.ThreatType;
+import us.springett.threatmodeling.tools.mstmt2016.util.ParseUtil;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
@@ -59,59 +59,37 @@ public final class Parser implements IParser {
             threatModel.setNativeThreatModel(nativeModel);
 
             // Query the native model and set the threat model object with the values
-            threatModel.setAssumptions(nativeModel.getMetaInformation().getAssumptions());
-            threatModel.setContributors(nativeModel.getMetaInformation().getContributors());
-            threatModel.setDescription(nativeModel.getMetaInformation().getHighLevelSystemDescription());
-            threatModel.setName(nativeModel.getMetaInformation().getThreatModelName());
-            threatModel.setOwner(nativeModel.getMetaInformation().getOwner());
-            threatModel.setReviewer(nativeModel.getMetaInformation().getReviewer());
+            threatModel.assumptions(nativeModel.getMetaInformation().getAssumptions())
+                    .contributors(nativeModel.getMetaInformation().getContributors())
+                    .description(nativeModel.getMetaInformation().getHighLevelSystemDescription())
+                    .name(nativeModel.getMetaInformation().getThreatModelName())
+                    .owner(nativeModel.getMetaInformation().getOwner())
+                    .reviewer(nativeModel.getMetaInformation().getReviewer());
 
-            List<Threat> threats = new ArrayList<Threat>();
+            List<Threat> threats = new ArrayList<>();
             List<HashMap<String, ThreatInstance>> threatList = nativeModel.getKeyValueThreatMap();
             for (HashMap<String, ThreatInstance> threatMap: threatList) {
                 for (Map.Entry<String, ThreatInstance> threatEntry : threatMap.entrySet()) {
-                    Threat threat = new Threat();
-                    threat.setId(threatEntry.getKey());
                     ThreatInstance ti = threatEntry.getValue();
-                    threat.setId(ti.getId());
+                    ThreatType threatType = ParseUtil.lookupThreatType(nativeModel, ti);
 
-                    if ("High".equals(ti.getPriority())) {
-                        threat.setRisk(Risk.HIGH);
-                    } else if ("Medium".equals(ti.getPriority())) {
-                        threat.setRisk(Risk.MEDIUM);
-                    } else if ("Low".equals(ti.getPriority())) {
-                        threat.setRisk(Risk.LOW);
-                    } else{
-                        System.out.println("something else");
-                    }
-                    threat.setMitigated("Mitigated".equals(ti.getState()));
-
-                    if (ti.getTypeId().startsWith("S")) {
-                        threat.setThreatClassification(Stride.SPOOFING);
-                    } else if (ti.getTypeId().startsWith("T")) {
-                            threat.setThreatClassification(Stride.TAMPERING);
-                    } else if (ti.getTypeId().startsWith("R")) {
-                        threat.setThreatClassification(Stride.REPUDIATION);
-                    } else if (ti.getTypeId().startsWith("I")) {
-                        threat.setThreatClassification(Stride.INFORMATION_DISCLOSURE);
-                    } else if (ti.getTypeId().startsWith("D")) {
-                        threat.setThreatClassification(Stride.DENIAL_OF_SERVICE);
-                    } else if (ti.getTypeId().startsWith("E")) {
-                        threat.setThreatClassification(Stride.ELEVATION_OF_PRIVILEGE);
-                    } else if (ti.getTypeId().startsWith("A")) {
-                        threat.setThreatClassification(Stride.ABUSE);
-                    } else {
-                        System.out.println("other");
-                    }
+                    Threat threat = new Threat()
+                            .id(ti.getId())
+                            .name(ParseUtil.lookupPropertyValueByKey(ti, "Title"))
+                            .description(ParseUtil.lookupPropertyValueByKey(ti, "UserThreatDescription"))
+                            .justification(ParseUtil.lookupPropertyValueByKey(ti, "StateInformation"))
+                            .threatClassification(ParseUtil.lookupClassification(threatType))
+                            .mitigated(ParseUtil.isMitigated(ti))
+                            .risk(ParseUtil.lookupRisk(ti));
 
                     //todo: complete model normalization
-
+                    //todo: add CWE and CAPEC mappings
 
                     System.out.println(threat);
                     threats.add(threat);
                 }
+                threatModel.setThreats(threats);
             }
-
             return threatModel;
 
         } catch (JAXBException | XMLStreamException e) {
