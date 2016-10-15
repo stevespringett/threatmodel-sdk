@@ -222,7 +222,7 @@ public class Threat {
     }
 
     /**
-     * Fluent interface for {@link #setCAPEC(CAPEC)} (CAPEC)}
+     * Fluent interface for {@link #setCAPEC(CAPEC)}
      * @since 1.0.0
      */
     public Threat capec(CAPEC capec) {
