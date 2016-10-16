@@ -123,6 +123,8 @@ public class ParseUtil {
                 for (Border.AnyType anytype: border.getValue().getAnyTypes()) {
                     if (anytype.getDisplayName() != null && anytype.getDisplayName().equals("Name")) {
                         asset.setName(anytype.getValue());
+                    } else if (anytype.getDisplayName() != null && anytype.getDisplayName().equals("Out Of Scope")) {
+                        asset.setOutOfScope(Boolean.parseBoolean(anytype.getValue()));
                     }
                 }
             }

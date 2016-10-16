@@ -28,6 +28,7 @@ public class Asset {
     private String id;
     private String name;
     private String description;
+    private boolean outOfScope;
 
     /**
      * Return the unique ID of the threat.
@@ -107,6 +108,31 @@ public class Asset {
      */
     public Asset description(String description) {
         setDescription(description);
+        return this;
+    }
+
+    /**
+     * Returns whether the asset is out of scope.
+     * @since 1.0.0
+     */
+    public boolean isOutOfScope() {
+        return outOfScope;
+    }
+
+    /**
+     * Sets whether the asset is out of scope.
+     * @since 1.0.0
+     */
+    public void setOutOfScope(boolean outOfScope) {
+        this.outOfScope = outOfScope;
+    }
+
+    /**
+     * Fluent interface for {@link #setOutOfScope(boolean)}
+     * @since 1.0.0
+     */
+    public Asset outOfScope(boolean outOfScope) {
+        setOutOfScope(outOfScope);
         return this;
     }
 }
