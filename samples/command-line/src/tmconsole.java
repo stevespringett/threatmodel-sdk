@@ -26,6 +26,21 @@ public class tmconsole {
         ThreatModel threatModel = new ThreatModelFactory()
                 .parse(file, ThreatModelingTool.MICROSOFT_THREAT_MODELING_TOOL_2016);
 
+        System.out.println("-------------------------------------------------------------------------------");
+        System.out.println("Threat Model Metadata");
+        System.out.println("-------------------------------------------------------------------------------");
+        System.out.println("Model Name:     " + threatModel.getName());
+        System.out.println("Description:    " + threatModel.getDescription());
+        System.out.println("Contributors:   " + threatModel.getContributors());
+        System.out.println("Assumptions:    " + threatModel.getAssumptions());
+        System.out.println("Owner:          " + threatModel.getOwner());
+        System.out.println("Reviewer:       " + threatModel.getReviewer());
+        System.out.println("# of Threats:   " + threatModel.getThreats().size());
+        System.out.println("# of Assets:    " + threatModel.getAssets().size());
+        System.out.println("\n");
+
+
+        System.out.println("-------------------------------------------------------------------------------");
         System.out.println("Analyzed Threats");
         System.out.println("-------------------------------------------------------------------------------");
         // Iterate through all threats and print some info to the console
@@ -38,6 +53,7 @@ public class tmconsole {
             System.out.println("\n");
         }
 
+        System.out.println("-------------------------------------------------------------------------------");
         System.out.println("Assets Defined");
         System.out.println("-------------------------------------------------------------------------------");
         // Iterate through all assets and print some info to the console
