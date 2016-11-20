@@ -17,11 +17,13 @@ package us.springett.threatmodeling.tools.mstmt2016;
 
 import us.springett.threatmodeling.IParser;
 import us.springett.threatmodeling.exception.ParseException;
+import us.springett.threatmodeling.model.Asset;
 import us.springett.threatmodeling.model.Threat;
 import us.springett.threatmodeling.model.ThreatModel;
 import us.springett.threatmodeling.tools.mstmt2016.model.ThreatInstance;
 import us.springett.threatmodeling.tools.mstmt2016.model.ThreatType;
 import us.springett.threatmodeling.tools.mstmt2016.util.ParseUtil;
+
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
@@ -58,6 +60,9 @@ public final class Parser implements IParser {
             // Add the native threat model object format to the threat model object
             threatModel.setNativeThreatModel(nativeModel);
 
+            //Extract the Assets so that they can be assigned to threats
+            List<Asset> assets = ParseUtil.lookupAssets(nativeModel);
+
             // Query the native model and set the threat model object with the values
             threatModel.assumptions(nativeModel.getMetaInformation().getAssumptions())
                     .contributors(nativeModel.getMetaInformation().getContributors())
@@ -65,7 +70,7 @@ public final class Parser implements IParser {
                     .name(nativeModel.getMetaInformation().getThreatModelName())
                     .owner(nativeModel.getMetaInformation().getOwner())
                     .reviewer(nativeModel.getMetaInformation().getReviewer())
-                    .assets(ParseUtil.lookupAssets(nativeModel));
+                    .assets(assets);
 
             List<Threat> threats = new ArrayList<>();
             List<HashMap<String, ThreatInstance>> threatList = nativeModel.getKeyValueThreatMap();
@@ -81,7 +86,8 @@ public final class Parser implements IParser {
                             .justification(ParseUtil.lookupPropertyValueByKey(ti, "StateInformation"))
                             .threatClassification(ParseUtil.lookupClassification(threatType))
                             .mitigated(ParseUtil.isMitigated(ti))
-                            .risk(ParseUtil.lookupRisk(ti));
+                            .risk(ParseUtil.lookupRisk(ti))
+                            .assets(ParseUtil.lookupTargetAsset(assets, ti));
 
                     //todo: complete model normalization
                     //todo: add CWE and CAPEC mappings

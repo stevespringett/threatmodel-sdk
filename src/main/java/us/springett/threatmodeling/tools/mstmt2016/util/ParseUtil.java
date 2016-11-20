@@ -25,6 +25,7 @@ import us.springett.threatmodeling.tools.mstmt2016.model.ThreatInstance;
 import us.springett.threatmodeling.tools.mstmt2016.model.ThreatModel;
 import us.springett.threatmodeling.tools.mstmt2016.model.ThreatType;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -133,4 +134,17 @@ public class ParseUtil {
         return assets;
     }
 
+    public static Map<String, Asset> mapAssetsByIds(List<Asset> assets) {
+        Map<String, Asset> idAssetMap = new HashMap<>();
+        for (Asset asset : assets) {
+            idAssetMap.put(asset.getId(),asset);
+        }
+        return idAssetMap;
+    }
+
+    public static List<Asset> lookupTargetAsset(List<Asset> assets, ThreatInstance ti) {
+        List<Asset> assetList = new ArrayList<Asset>();
+        assetList.add(mapAssetsByIds(assets).get(ti.getTargetGuid()));
+        return assetList;
+    }
 }
