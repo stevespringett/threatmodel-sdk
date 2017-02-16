@@ -38,6 +38,7 @@ public class Threat {
     private String investigationNotes;
     private String entryPoints;
     private List<Asset> assets;
+    private ThreatState state;
 
     /**
      * Returns the unique ID of the threat.
@@ -173,6 +174,15 @@ public class Threat {
     }
 
     /**
+     * Fluent interface for {@link #setState(ThreatState)}
+     * @since 1.0.0
+     */
+    public Threat state(ThreatState state) {
+        setState(state);
+        return this;
+    }
+
+    /**
      * Returns the Common Weakness Enumeration (CWE) identifier of the threat.
      * @return the Common Weakness Enumeration (CWE) identifier of the threat.
      * @since 1.0.0
@@ -231,30 +241,13 @@ public class Threat {
     }
 
     /**
-     * Returns if the threat has been mitigated or has mitigating controls.
+     * Returns if the threat has been mitigated or has mitigating controls. Synthetic accessor over the ThreatState
      * @return a boolean indicating if the threat has been mitigated or has mitigating controls.
      * @since 1.0.0
      */
     public boolean isMitigated() {
-        return mitigated;
-    }
-
-    /**
-     * Sets whether or not the threat has been mitigated or has mitigating controls.
-     * @param mitigated a boolean indicating if the threat has been mitigated or has mitigating controls.
-     * @since 1.0.0
-     */
-    public void setMitigated(boolean mitigated) {
-        this.mitigated = mitigated;
-    }
-
-    /**
-     * Fluent interface for {@link #setMitigated(boolean)}
-     * @since 1.0.0
-     */
-    public Threat mitigated(boolean mitigated) {
-        setMitigated(mitigated);
-        return this;
+        return ThreatState.MITIGATED.equals(state) ||
+                ThreatState.NOT_APPLICABLE.equals(state);
     }
 
     /**
@@ -363,5 +356,23 @@ public class Threat {
     public Threat assets(List<Asset> assets) {
         setAssets(assets);
         return this;
+    }
+
+    /**
+     * Returns the State of the threat.
+     * @return the ThreatState of the threat.
+     * @since 1.0.0
+     */
+    public ThreatState getState() {
+        return state;
+    }
+
+    /**
+     * Sets the ThreatState of the threat.
+     * @param state the state of the threat.
+     * @since 1.0.0
+     */
+    public void setState(ThreatState state) {
+        this.state = state;
     }
 }
