@@ -18,6 +18,7 @@ package us.springett.threatmodeling.tools.mstmt2016.util;
 import us.springett.threatmodeling.model.Asset;
 import us.springett.threatmodeling.model.Risk;
 import us.springett.threatmodeling.model.Stride;
+import us.springett.threatmodeling.model.ThreatState;
 import us.springett.threatmodeling.tools.mstmt2016.model.Border;
 import us.springett.threatmodeling.tools.mstmt2016.model.DrawingSurfaceList;
 import us.springett.threatmodeling.tools.mstmt2016.model.DrawingSurfaceModel;
@@ -146,5 +147,15 @@ public class ParseUtil {
         List<Asset> assetList = new ArrayList<Asset>();
         assetList.add(mapAssetsByIds(assets).get(ti.getTargetGuid()));
         return assetList;
+    }
+
+    public static ThreatState lookupState(ThreatInstance ti) {
+        ThreatState state;
+        try {
+            state = ThreatState.fromString(ti.getState());
+        } catch (IllegalArgumentException e) {
+            throw new RuntimeException("Invalid threat state: ["+ti.getState()+"]");
+        }
+        return state;
     }
 }

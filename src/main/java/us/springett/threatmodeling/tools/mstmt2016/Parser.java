@@ -85,8 +85,8 @@ public final class Parser implements IParser {
                             .description(ParseUtil.lookupPropertyValueByKey(ti, "UserThreatDescription"))
                             .justification(ParseUtil.lookupPropertyValueByKey(ti, "StateInformation"))
                             .threatClassification(ParseUtil.lookupClassification(threatType))
-                            .mitigated(ParseUtil.isMitigated(ti))
                             .risk(ParseUtil.lookupRisk(ti))
+                            .state(ParseUtil.lookupState(ti))
                             .assets(ParseUtil.lookupTargetAsset(assets, ti));
 
                     //todo: complete model normalization
