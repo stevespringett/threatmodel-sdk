@@ -15,7 +15,9 @@
  */
 package us.springett.threatmodeling.model;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * The root level object for a threat model and/or threat modeling exercise.
@@ -288,6 +290,20 @@ public class ThreatModel {
      */
     public List<Asset> getAssets() {
         return assets;
+    }
+
+    /**
+     * Returns a list of assets.
+     * @return a list of assets.
+     * @since 1.0.0
+     */
+    public Set<Asset> getAssetsReferencedByThreats() {
+        if (threats == null || threats.size() == 0) return new HashSet<Asset>();
+        Set<Asset> assetsReferencedByThreats = new HashSet<>();
+        for (Threat threat : threats) {
+            assetsReferencedByThreats.addAll(threat.getAssets());
+        }
+        return assetsReferencedByThreats;
     }
 
     /**

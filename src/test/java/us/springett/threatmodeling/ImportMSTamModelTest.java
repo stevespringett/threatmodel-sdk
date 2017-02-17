@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.Map;
 
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.core.IsCollectionContaining.hasItems;
 import static org.hamcrest.core.IsEqual.equalTo;
 
 public class ImportMSTamModelTest {
@@ -44,6 +45,9 @@ public class ImportMSTamModelTest {
             assertThat(threat.getAssets().size(), equalTo(1));
             assertThat(threat.getAssets().get(0).getId(), equalTo(databaseAsset.getId()));
         }
+
+        assertThat(threatModel.getAssetsReferencedByThreats().size(), equalTo(2));
+        assertThat(threatModel.getAssetsReferencedByThreats(),hasItems(webAppAsset,databaseAsset) );
     }
 
     @Test
