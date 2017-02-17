@@ -18,6 +18,7 @@ package us.springett.threatmodeling.tools.mstmt2016;
 import us.springett.threatmodeling.IParser;
 import us.springett.threatmodeling.exception.ParseException;
 import us.springett.threatmodeling.model.Asset;
+import us.springett.threatmodeling.model.DataFlow;
 import us.springett.threatmodeling.model.Threat;
 import us.springett.threatmodeling.model.ThreatModel;
 import us.springett.threatmodeling.tools.mstmt2016.model.ThreatInstance;
@@ -63,6 +64,9 @@ public final class Parser implements IParser {
             //Extract the Assets so that they can be assigned to threats
             List<Asset> assets = ParseUtil.lookupAssets(nativeModel);
 
+            //Extract all dataFlows
+            List<DataFlow> dataFlows = ParseUtil.lookupDataFlows(nativeModel);
+
             // Query the native model and set the threat model object with the values
             threatModel.assumptions(nativeModel.getMetaInformation().getAssumptions())
                     .contributors(nativeModel.getMetaInformation().getContributors())
@@ -70,7 +74,8 @@ public final class Parser implements IParser {
                     .name(nativeModel.getMetaInformation().getThreatModelName())
                     .owner(nativeModel.getMetaInformation().getOwner())
                     .reviewer(nativeModel.getMetaInformation().getReviewer())
-                    .assets(assets);
+                    .assets(assets)
+                    .dataFlows(dataFlows);
 
             List<Threat> threats = new ArrayList<>();
             List<HashMap<String, ThreatInstance>> threatList = nativeModel.getKeyValueThreatMap();
@@ -87,6 +92,7 @@ public final class Parser implements IParser {
                             .threatClassification(ParseUtil.lookupClassification(threatType))
                             .risk(ParseUtil.lookupRisk(ti))
                             .state(ParseUtil.lookupState(ti))
+                            .dataFlow(ParseUtil.lookupAssociatedDataFlows(dataFlows, ti))
                             .assets(ParseUtil.lookupTargetAsset(assets, ti));
 
                     //todo: complete model normalization

@@ -15,16 +15,10 @@
  */
 package us.springett.threatmodeling.tools.mstmt2016.util;
 
-import us.springett.threatmodeling.model.Asset;
-import us.springett.threatmodeling.model.Risk;
-import us.springett.threatmodeling.model.Stride;
-import us.springett.threatmodeling.model.ThreatState;
-import us.springett.threatmodeling.tools.mstmt2016.model.Border;
-import us.springett.threatmodeling.tools.mstmt2016.model.DrawingSurfaceList;
-import us.springett.threatmodeling.tools.mstmt2016.model.DrawingSurfaceModel;
-import us.springett.threatmodeling.tools.mstmt2016.model.ThreatInstance;
+import us.springett.threatmodeling.model.*;
+import us.springett.threatmodeling.tools.mstmt2016.model.*;
 import us.springett.threatmodeling.tools.mstmt2016.model.ThreatModel;
-import us.springett.threatmodeling.tools.mstmt2016.model.ThreatType;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -143,6 +137,14 @@ public class ParseUtil {
         return idAssetMap;
     }
 
+    public static Map<String, DataFlow> mapDataflowsByIds(List<DataFlow> dataFlows) {
+        Map<String, DataFlow> idDataFlowMap = new HashMap<>();
+        for (DataFlow asset : dataFlows) {
+            idDataFlowMap.put(asset.getId(),asset);
+        }
+        return idDataFlowMap;
+    }
+
     public static List<Asset> lookupTargetAsset(List<Asset> assets, ThreatInstance ti) {
         List<Asset> assetList = new ArrayList<Asset>();
         assetList.add(mapAssetsByIds(assets).get(ti.getTargetGuid()));
@@ -157,5 +159,22 @@ public class ParseUtil {
             throw new RuntimeException("Invalid threat state: ["+ti.getState()+"]");
         }
         return state;
+    }
+
+    public static List<DataFlow> lookupDataFlows(ThreatModel nativeModel) {
+        List<DataFlow> dataFlows = new ArrayList<>();
+        for (Line line : nativeModel.getDrawingSurfaceList().getDrawingSurfaceModel().getLines()) {
+            //The first item in the AnyTypes is the name that's displayed.
+            dataFlows.add(new DataFlow(line.getKey(),line.getValue().getAnyTypes().get(0).getDisplayName()));
+        }
+        return dataFlows;
+    }
+
+    public static DataFlow lookupAssociatedDataFlows(List<DataFlow> dataFlows, ThreatInstance ti) {
+        return mapDataflowsByIds(dataFlows).get(parseDataflowFromInteraction(ti.getInteractionKey()));
+    }
+
+    public static String parseDataflowFromInteraction(String interaction) {
+        return interaction.split(":")[1];
     }
 }

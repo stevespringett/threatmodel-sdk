@@ -36,6 +36,7 @@ public class ThreatModel {
     private List<Asset> assets;
     private List<Threat> threats;
     private Object nativeThreatModel;
+    private List<DataFlow> dataFlows;
 
     /**
      * Returns the unique ID of the threat model.
@@ -362,6 +363,19 @@ public class ThreatModel {
      */
     public ThreatModel nativeThreatModel(Object nativeThreatModel) {
         setNativeThreatModel(nativeThreatModel);
+        return this;
+    }
+
+    public List<DataFlow> getDataFlows() {
+        return dataFlows;
+    }
+
+    public void setDataFlows(List<DataFlow> dataFlows) {
+        this.dataFlows = dataFlows;
+    }
+
+    public ThreatModel dataFlows(List<DataFlow> dataFlows) {
+        setDataFlows(dataFlows);
         return this;
     }
 }

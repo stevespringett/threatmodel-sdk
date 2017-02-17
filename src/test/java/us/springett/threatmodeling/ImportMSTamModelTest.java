@@ -3,10 +3,7 @@ package us.springett.threatmodeling;
 import org.junit.Before;
 import org.junit.Test;
 import us.springett.threatmodeling.exception.ParseException;
-import us.springett.threatmodeling.model.Asset;
-import us.springett.threatmodeling.model.Threat;
-import us.springett.threatmodeling.model.ThreatModel;
-import us.springett.threatmodeling.model.ThreatState;
+import us.springett.threatmodeling.model.*;
 import us.springett.threatmodeling.tools.mstmt2016.util.ParseUtil;
 
 import java.io.File;
@@ -75,5 +72,33 @@ public class ImportMSTamModelTest {
         Threat threat = threatModel.getThreats().get(10);
         assertThat(threat.getState(), equalTo(ThreatState.NEEDS_INVESTIGATION));
         assertThat(threat.isMitigated(), equalTo(false));
+    }
+
+    @Test
+    public void testParsingDataflows() {
+        List<DataFlow> dataFlows = threatModel.getDataFlows();
+        assertThat(dataFlows.get(0).getId(), equalTo("dfabcdec-3d58-46eb-bcdb-c7c5b0e46201"));
+        assertThat(dataFlows.get(0).getName(), equalTo("HTTPS"));
+
+        assertThat(dataFlows.get(1).getId(), equalTo("1433bfa7-e3c0-40b5-b8a2-13f722a6a0db"));
+        assertThat(dataFlows.get(1).getName(), equalTo("Internet Boundary"));
+
+        assertThat(dataFlows.get(2).getId(), equalTo("cc9b0f2d-2389-4f51-8a55-ebbfc7e9f79d"));
+        assertThat(dataFlows.get(2).getName(), equalTo("Binary"));
+    }
+
+    @Test
+    public void testAssigningDataflowsToThreats() {
+        for (Threat threat : threatModel.getThreats()) {
+            System.out.println(threat.getDataFlow().getName());
+        }
+        assertThat(threatModel.getThreats().get(0).getDataFlow().getName(),equalTo("HTTPS"));
+        assertThat(threatModel.getThreats().get(0).getDataFlow().getId(),equalTo("dfabcdec-3d58-46eb-bcdb-c7c5b0e46201"));
+
+        assertThat(threatModel.getThreats().get(9).getDataFlow().getName(),equalTo("HTTPS"));
+        assertThat(threatModel.getThreats().get(9).getDataFlow().getId(),equalTo("dfabcdec-3d58-46eb-bcdb-c7c5b0e46201"));
+
+        assertThat(threatModel.getThreats().get(12).getDataFlow().getName(),equalTo("Binary"));
+        assertThat(threatModel.getThreats().get(12).getDataFlow().getId(),equalTo("cc9b0f2d-2389-4f51-8a55-ebbfc7e9f79d"));
     }
 }
