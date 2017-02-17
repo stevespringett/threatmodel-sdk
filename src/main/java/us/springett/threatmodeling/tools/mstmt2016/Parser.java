@@ -92,7 +92,7 @@ public final class Parser implements IParser {
                             .threatClassification(ParseUtil.lookupClassification(threatType))
                             .risk(ParseUtil.lookupRisk(ti))
                             .state(ParseUtil.lookupState(ti))
-                            .dataFlow(ParseUtil.lookupAssociatedDataFlows(dataFlows, ti))
+                            .dataFlow(ParseUtil.lookupAssociatedDataFlows(assets,dataFlows, ti))
                             .assets(ParseUtil.lookupTargetAsset(assets, ti));
 
                     //todo: complete model normalization

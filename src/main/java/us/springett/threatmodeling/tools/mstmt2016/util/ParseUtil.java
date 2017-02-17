@@ -99,10 +99,6 @@ public class ParseUtil {
         return null;
     }
 
-    public static boolean isMitigated(ThreatInstance threatInstance) {
-        return "Mitigated".equals(threatInstance.getState());
-    }
-
     public static List<Asset> lookupAssets(ThreatModel threatModel) {
         List<Asset> assets = new ArrayList<>();
 
@@ -118,7 +114,7 @@ public class ParseUtil {
             if (border.getValue() != null && border.getValue().getAnyTypes() != null) {
                 for (Border.AnyType anytype: border.getValue().getAnyTypes()) {
                     if (anytype.getDisplayName() != null && anytype.getDisplayName().equals("Name")) {
-                        asset.setName(anytype.getValue());
+                        asset.setName(anytype.getValue().trim());
                     } else if (anytype.getDisplayName() != null && anytype.getDisplayName().equals("Out Of Scope")) {
                         asset.setOutOfScope(Boolean.parseBoolean(anytype.getValue()));
                     }
@@ -170,11 +166,16 @@ public class ParseUtil {
         return dataFlows;
     }
 
-    public static DataFlow lookupAssociatedDataFlows(List<DataFlow> dataFlows, ThreatInstance ti) {
-        return mapDataflowsByIds(dataFlows).get(parseDataflowFromInteraction(ti.getInteractionKey()));
+    public static DataFlow lookupAssociatedDataFlows(List<Asset> assets, List<DataFlow> dataFlows, ThreatInstance ti) {
+        String interactionKey[] = ti.getInteractionKey().trim().split(":");
+        String sourceId = interactionKey[0];
+        String dataFlowId = interactionKey[1];
+        String targetId = interactionKey[2];
+        Map<String,Asset> idToAssetMap = mapAssetsByIds(assets);
+        DataFlow dataFlow = mapDataflowsByIds(dataFlows).get(dataFlowId);
+        dataFlow.setSource(idToAssetMap.get(sourceId));
+        dataFlow.setDestination(idToAssetMap.get(targetId));
+        return dataFlow;
     }
 
-    public static String parseDataflowFromInteraction(String interaction) {
-        return interaction.split(":")[1];
-    }
 }

@@ -89,16 +89,16 @@ public class ImportMSTamModelTest {
 
     @Test
     public void testAssigningDataflowsToThreats() {
-        for (Threat threat : threatModel.getThreats()) {
-            System.out.println(threat.getDataFlow().getName());
-        }
-        assertThat(threatModel.getThreats().get(0).getDataFlow().getName(),equalTo("HTTPS"));
-        assertThat(threatModel.getThreats().get(0).getDataFlow().getId(),equalTo("dfabcdec-3d58-46eb-bcdb-c7c5b0e46201"));
+        Threat firstThreat = threatModel.getThreats().get(0);
+        assertThat(firstThreat.getDataFlow().getName(),equalTo("HTTPS"));
+        assertThat(firstThreat.getDataFlow().getId(),equalTo("dfabcdec-3d58-46eb-bcdb-c7c5b0e46201"));
+        assertThat(firstThreat.getDataFlow().getSource().getName(), equalTo("Browser Client"));
+        assertThat(firstThreat.getDataFlow().getDestination().getName(), equalTo("Web Application"));
 
-        assertThat(threatModel.getThreats().get(9).getDataFlow().getName(),equalTo("HTTPS"));
-        assertThat(threatModel.getThreats().get(9).getDataFlow().getId(),equalTo("dfabcdec-3d58-46eb-bcdb-c7c5b0e46201"));
-
-        assertThat(threatModel.getThreats().get(12).getDataFlow().getName(),equalTo("Binary"));
-        assertThat(threatModel.getThreats().get(12).getDataFlow().getId(),equalTo("cc9b0f2d-2389-4f51-8a55-ebbfc7e9f79d"));
+        Threat anotherThreat = threatModel.getThreats().get(12);
+        assertThat(anotherThreat.getDataFlow().getName(),equalTo("Binary"));
+        assertThat(anotherThreat.getDataFlow().getId(),equalTo("cc9b0f2d-2389-4f51-8a55-ebbfc7e9f79d"));
+        assertThat(anotherThreat.getDataFlow().getSource().getName(), equalTo("Web Application"));
+        assertThat(anotherThreat.getDataFlow().getDestination().getName(), equalTo("SQL Database"));
     }
 }
