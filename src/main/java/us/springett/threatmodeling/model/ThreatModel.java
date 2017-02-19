@@ -15,7 +15,9 @@
  */
 package us.springett.threatmodeling.model;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * The root level object for a threat model and/or threat modeling exercise.
@@ -36,6 +38,7 @@ public class ThreatModel {
     private List<Asset> assets;
     private List<Threat> threats;
     private Object nativeThreatModel;
+    private List<DataFlow> dataFlows;
 
     /**
      * Returns the unique ID of the threat model.
@@ -290,6 +293,20 @@ public class ThreatModel {
     }
 
     /**
+     * Returns a list of assets.
+     * @return a list of assets.
+     * @since 1.0.0
+     */
+    public Set<Asset> getAssetsReferencedByThreats() {
+        if (threats == null || threats.size() == 0) return new HashSet<Asset>();
+        Set<Asset> assetsReferencedByThreats = new HashSet<>();
+        for (Threat threat : threats) {
+            assetsReferencedByThreats.addAll(threat.getAssets());
+        }
+        return assetsReferencedByThreats;
+    }
+
+    /**
      * Sets a list of assets.
      * @param assets a list of assets.
      * @since 1.0.0
@@ -362,6 +379,19 @@ public class ThreatModel {
      */
     public ThreatModel nativeThreatModel(Object nativeThreatModel) {
         setNativeThreatModel(nativeThreatModel);
+        return this;
+    }
+
+    public List<DataFlow> getDataFlows() {
+        return dataFlows;
+    }
+
+    public void setDataFlows(List<DataFlow> dataFlows) {
+        this.dataFlows = dataFlows;
+    }
+
+    public ThreatModel dataFlows(List<DataFlow> dataFlows) {
+        setDataFlows(dataFlows);
         return this;
     }
 }

@@ -3,10 +3,7 @@ package us.springett.threatmodeling;
 import org.junit.Before;
 import org.junit.Test;
 import us.springett.threatmodeling.exception.ParseException;
-import us.springett.threatmodeling.model.Asset;
-import us.springett.threatmodeling.model.Threat;
-import us.springett.threatmodeling.model.ThreatModel;
-import us.springett.threatmodeling.model.ThreatState;
+import us.springett.threatmodeling.model.*;
 import us.springett.threatmodeling.tools.mstmt2016.util.ParseUtil;
 
 import java.io.File;
@@ -14,6 +11,7 @@ import java.util.List;
 import java.util.Map;
 
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.core.IsCollectionContaining.hasItems;
 import static org.hamcrest.core.IsEqual.equalTo;
 
 public class ImportMSTamModelTest {
@@ -47,6 +45,9 @@ public class ImportMSTamModelTest {
             assertThat(threat.getAssets().size(), equalTo(1));
             assertThat(threat.getAssets().get(0).getId(), equalTo(databaseAsset.getId()));
         }
+
+        assertThat(threatModel.getAssetsReferencedByThreats().size(), equalTo(2));
+        assertThat(threatModel.getAssetsReferencedByThreats(),hasItems(webAppAsset,databaseAsset) );
     }
 
     @Test
@@ -75,5 +76,33 @@ public class ImportMSTamModelTest {
         Threat threat = threatModel.getThreats().get(10);
         assertThat(threat.getState(), equalTo(ThreatState.NEEDS_INVESTIGATION));
         assertThat(threat.isMitigated(), equalTo(false));
+    }
+
+    @Test
+    public void testParsingDataflows() {
+        List<DataFlow> dataFlows = threatModel.getDataFlows();
+        assertThat(dataFlows.get(0).getId(), equalTo("dfabcdec-3d58-46eb-bcdb-c7c5b0e46201"));
+        assertThat(dataFlows.get(0).getName(), equalTo("HTTPS"));
+
+        assertThat(dataFlows.get(1).getId(), equalTo("1433bfa7-e3c0-40b5-b8a2-13f722a6a0db"));
+        assertThat(dataFlows.get(1).getName(), equalTo("Internet Boundary"));
+
+        assertThat(dataFlows.get(2).getId(), equalTo("cc9b0f2d-2389-4f51-8a55-ebbfc7e9f79d"));
+        assertThat(dataFlows.get(2).getName(), equalTo("Binary"));
+    }
+
+    @Test
+    public void testAssigningDataflowsToThreats() {
+        Threat firstThreat = threatModel.getThreats().get(0);
+        assertThat(firstThreat.getDataFlow().getName(),equalTo("HTTPS"));
+        assertThat(firstThreat.getDataFlow().getId(),equalTo("dfabcdec-3d58-46eb-bcdb-c7c5b0e46201"));
+        assertThat(firstThreat.getDataFlow().getSource().getName(), equalTo("Browser Client"));
+        assertThat(firstThreat.getDataFlow().getDestination().getName(), equalTo("Web Application"));
+
+        Threat anotherThreat = threatModel.getThreats().get(12);
+        assertThat(anotherThreat.getDataFlow().getName(),equalTo("Binary"));
+        assertThat(anotherThreat.getDataFlow().getId(),equalTo("cc9b0f2d-2389-4f51-8a55-ebbfc7e9f79d"));
+        assertThat(anotherThreat.getDataFlow().getSource().getName(), equalTo("Web Application"));
+        assertThat(anotherThreat.getDataFlow().getDestination().getName(), equalTo("SQL Database"));
     }
 }

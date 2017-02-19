@@ -31,8 +31,8 @@ public class Asset {
     private boolean outOfScope;
 
     /**
-     * Return the unique ID of the threat.
-     * @return the unique ID of the threat.
+     * Return the unique ID of the asset.  In the MS model this corresponds to the key.
+     * @return the unique ID of the asset.
      * @since 1.0.0
      */
     public String getId() {
@@ -40,8 +40,8 @@ public class Asset {
     }
 
     /**
-     * Sets the unique ID of the threat.
-     * @param id the unique ID of the threat.
+     * Sets the unique ID of the asset.
+     * @param id the unique ID of the asset.
      * @since 1.0.0
      */
     public void setId(String id) {

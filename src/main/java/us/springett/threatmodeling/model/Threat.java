@@ -33,12 +33,15 @@ public class Threat {
     private Risk risk;
     private CWE cwe;
     private CAPEC capec;
-    private boolean mitigated;
     private String justification;
     private String investigationNotes;
     private String entryPoints;
     private List<Asset> assets;
     private ThreatState state;
+
+
+
+    private DataFlow dataFlow;
 
     /**
      * Returns the unique ID of the threat.
@@ -118,6 +121,16 @@ public class Threat {
      */
     public Threat description(String description) {
         setDescription(description);
+        return this;
+    }
+
+    /**
+     * Fluent interface for {@link #setDataFlow(DataFlow)}
+     * @param dataFlow
+     * @return
+     */
+    public Threat dataFlow(DataFlow dataFlow) {
+        setDataFlow(dataFlow);
         return this;
     }
 
@@ -374,5 +387,21 @@ public class Threat {
      */
     public void setState(ThreatState state) {
         this.state = state;
+    }
+
+    /**
+     *
+     * @return The DataFlow associated with this Threat
+     */
+    public DataFlow getDataFlow() {
+        return dataFlow;
+    }
+
+    /**
+     *
+     * @param dataFlow for this Threat
+     */
+    public void setDataFlow(DataFlow dataFlow) {
+        this.dataFlow = dataFlow;
     }
 }

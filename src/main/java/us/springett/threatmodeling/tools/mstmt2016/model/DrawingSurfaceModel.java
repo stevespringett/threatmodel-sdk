@@ -29,9 +29,21 @@ public class DrawingSurfaceModel {
         return borders;
     }
 
+    private List<Line> lines;
+
+    public List<Line> getLines() {
+        return lines;
+    }
+
     @XmlElementWrapper(name = "Borders")
     @XmlElement(name = "KeyValueOfguidanyType", namespace = "http://schemas.microsoft.com/2003/10/Serialization/Arrays")
     public void setBorders(List<Border> borders) {
         this.borders = borders;
+    }
+
+    @XmlElementWrapper(name = "Lines")
+    @XmlElement(name = "KeyValueOfguidanyType", namespace = "http://schemas.microsoft.com/2003/10/Serialization/Arrays")
+    public void setLines(List<Line> lines) {
+        this.lines = lines;
     }
 }
