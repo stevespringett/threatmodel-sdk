@@ -1,5 +1,3 @@
-package us.springett.threatmodeling.tools.mstmt2016.model;
-
 /*
  * This file is part of the ThreatModeling SDK.
  *
@@ -15,6 +13,7 @@ package us.springett.threatmodeling.tools.mstmt2016.model;
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package us.springett.threatmodeling.tools.mstmt2016.model;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
