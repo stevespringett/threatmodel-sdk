@@ -26,7 +26,7 @@
         <maven.compiler.target>1.7</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-
+        <maven.javadoc.failOnError>false</maven.javadoc.failOnError>
         <!-- Maven Plugin Versions -->
         <maven.javadoc.plugin.version>2.10.4</maven.javadoc.plugin.version>
         <maven.source.plugin.version>3.0.1</maven.source.plugin.version>
