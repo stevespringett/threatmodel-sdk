@@ -23,6 +23,8 @@ package us.springett.threatmodeling.exception;
 public class ParseException extends Exception {
 
     /**
+     * Creates a new ParseException.
+     * @param message the message describing the reason for the exception
      * @since 1.0.0
      */
     public ParseException(String message) {
@@ -30,6 +32,8 @@ public class ParseException extends Exception {
     }
 
     /**
+     * Creates a new ParseException.
+     * @param cause the exception that caused the parse exception
      * @since 1.0.0
      */
     public ParseException(Throwable cause) {
@@ -37,6 +41,9 @@ public class ParseException extends Exception {
     }
 
     /**
+     * Creates a new ParseException.
+     * @param message the message describing the reason for the exception
+     * @param cause the exception that caused the parse exception
      * @since 1.0.0
      */
     public ParseException(String message, Throwable cause) {
