@@ -43,14 +43,22 @@
         </developer>
     </developers>
 
-    <dependencies>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.12</version>
-            <scope>test</scope>
-        </dependency>
-    </dependencies>
+    <scm>
+        <connection>scm:git:git@github.com:stevespringett/threatmodel-sdk.git</connection>
+        <url>https://github.com/stevespringett/threatmodel-sdk.git</url>
+        <developerConnection>scm:git:git@github.com:stevespringett/threatmodel-sdk.git</developerConnection>
+        <tag>HEAD</tag>
+    </scm>
+
+    <issueManagement>
+        <system>GitHub</system>
+        <url>https://github.com/stevespringett/threatmodel-sdk/issues</url>
+    </issueManagement>
+
+    <ciManagement>
+        <system>travis-ci</system>
+        <url>https://travis-ci.org/stevespringett/threatmodel-sdk</url>
+    </ciManagement>
 
     <distributionManagement>
         <snapshotRepository>
@@ -62,6 +70,15 @@
             <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
         </repository>
     </distributionManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
 
     <build>
         <plugins>
