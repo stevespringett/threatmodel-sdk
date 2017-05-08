@@ -56,14 +56,13 @@ Threat threat = new Threat()
 
 Maven Usage
 -------------------
-The Threatmodel SDK is currently pre-release software but snapshot builds
-can be used and are available on the Maven Central Repository.
+The Threatmodel SDK is available on the Maven Central Repository.
 
 ```xml
 <dependency>
     <groupId>us.springett</groupId>
     <artifactId>threatmodel-sdk</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.0</version>
 </dependency>
 ```
 
