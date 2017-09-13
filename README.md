@@ -1,5 +1,7 @@
 [![Build Status](https://travis-ci.org/stevespringett/threatmodel-sdk.svg?branch=master)](https://travis-ci.org/stevespringett/threatmodel-sdk)
 [![Coverity Status](https://img.shields.io/coverity/scan/10490.svg)](https://scan.coverity.com/projects/stevespringett-threatmodel-sdk)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/a70de450d92041cf8966b88ab35230c2)](https://www.codacy.com/app/stevespringett/threatmodel-sdk?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=stevespringett/threatmodel-sdk&amp;utm_campaign=Badge_Grade)
+[![License](https://img.shields.io/badge/license-Apache%202.0-brightgreen.svg)][Apache 2.0]
 
 ThreatModel SDK
 =====================================
