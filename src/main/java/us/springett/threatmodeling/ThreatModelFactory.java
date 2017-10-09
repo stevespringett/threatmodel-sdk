@@ -18,6 +18,9 @@ package us.springett.threatmodeling;
 import us.springett.threatmodeling.exception.ParseException;
 import us.springett.threatmodeling.model.ThreatModel;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 
 /**
  * Convenience class that creates normalized ThreatModel objects from
@@ -26,6 +29,24 @@ import java.io.File;
  * @since 1.0.0
  */
 public class ThreatModelFactory {
+
+    /**
+     * Factory method that executes the correct vendor-specific parser.
+     *
+     * @param inputStream the threat model to parse
+     * @param tool the vendor-specific tool the threat model was created in
+     * @return a normalized ThreatModel object
+     * @throws ParseException thrown if errors are encountered with parsing the
+     * threat model
+     * @since 1.0.1
+     */
+    public ThreatModel parse(InputStream inputStream, ThreatModelingTool tool) throws ParseException {
+        if (ThreatModelingTool.MICROSOFT_THREAT_MODELING_TOOL_2016 == tool) {
+            IParser parser = new us.springett.threatmodeling.tools.mstmt2016.Parser();
+            return parser.parse(inputStream);
+        }
+        return null;
+    }
 
     /**
      * Factory method that executes the correct vendor-specific parser.
@@ -40,11 +61,11 @@ public class ThreatModelFactory {
             throw new ParseException("ThreatModel file does not exist.");
         }
 
-        if (ThreatModelingTool.MICROSOFT_THREAT_MODELING_TOOL_2016 == tool) {
-            IParser parser = new us.springett.threatmodeling.tools.mstmt2016.Parser();
-            return parser.parse(file);
+        try (InputStream inputStream = new FileInputStream(file)) {
+            return this.parse(inputStream, tool);
+        } catch (IOException e) {
+            throw new ParseException("ThreatModel could not be processed.");
         }
-        return null;
     }
 
 }

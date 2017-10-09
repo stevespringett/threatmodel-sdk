@@ -32,7 +32,7 @@ import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
 import javax.xml.transform.stream.StreamSource;
-import java.io.File;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -40,7 +40,8 @@ import java.util.Map;
 
 public final class Parser implements IParser {
 
-    public ThreatModel parse(File file) throws ParseException {
+    @Override
+    public ThreatModel parse(InputStream inputStream) throws ParseException {
         try {
             // Parse the native threat model
             JAXBContext jaxbContext = JAXBContext.newInstance(us.springett.threatmodeling.tools.mstmt2016.model.ThreatModel.class);
@@ -50,7 +51,7 @@ public final class Parser implements IParser {
             XMLInputFactory xif = XMLInputFactory.newFactory();
             xif.setProperty(XMLInputFactory.IS_SUPPORTING_EXTERNAL_ENTITIES, false);
             xif.setProperty(XMLInputFactory.SUPPORT_DTD, false);
-            XMLStreamReader xsr = xif.createXMLStreamReader(new StreamSource(file.getAbsolutePath()));
+            XMLStreamReader xsr = xif.createXMLStreamReader(new StreamSource(inputStream));
 
             us.springett.threatmodeling.tools.mstmt2016.model.ThreatModel nativeModel =
                     (us.springett.threatmodeling.tools.mstmt2016.model.ThreatModel) unmarshaller.unmarshal(xsr);
