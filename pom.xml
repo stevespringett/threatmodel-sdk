@@ -27,7 +27,7 @@
         <maven.javadoc.failOnError>false</maven.javadoc.failOnError>
         <!-- Maven Plugin Versions -->
         <maven.javadoc.plugin.version>2.10.4</maven.javadoc.plugin.version>
-        <maven.source.plugin.version>3.0.1</maven.source.plugin.version>
+        <maven.source.plugin.version>3.1.0</maven.source.plugin.version>
     </properties>
 
     <developers>
