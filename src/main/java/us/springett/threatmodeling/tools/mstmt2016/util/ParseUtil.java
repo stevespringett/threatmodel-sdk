@@ -57,9 +57,9 @@ public class ParseUtil {
                 return Stride.ELEVATION_OF_PRIVILEGE;
             case "A":
                 return Stride.ABUSE;
-            case "963cfa0d-0d15-4186-9b4a-4c88154a687a":
+            case "963cfa0d-0d15-4186-9b4a-4c88154a687a": 
                 return Stride.PRIVACY;
-            case "7aa66497-ce96-4295-b2cc-ef556daf0c13":
+            case "7aa66497-ce96-4295-b2cc-ef556daf0c13": 
                 return Stride.PATIENT_SAFETY;
         }
         return null;
