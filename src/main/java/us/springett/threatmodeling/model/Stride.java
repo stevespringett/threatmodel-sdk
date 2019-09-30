@@ -59,6 +59,8 @@ public enum Stride implements ThreatClassification {
     INFORMATION_DISCLOSURE,
     DENIAL_OF_SERVICE,
     ELEVATION_OF_PRIVILEGE,
-    ABUSE
-
+    ABUSE,
+    PRIVACY,
+    PATIENT_SAFETY,
+    USER_DEFINED
 }
